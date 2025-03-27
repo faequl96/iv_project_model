@@ -15,6 +15,10 @@ class UserProfileResponse extends Equatable {
     );
   }
 
+  Map<String, dynamic> toJson() {
+    return {'id': id, 'first_name': firstName, 'last_name': lastName};
+  }
+
   @override
   List<Object?> get props => [id, firstName, lastName];
 }

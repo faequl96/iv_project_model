@@ -15,6 +15,13 @@ class DiscountResponse extends Equatable {
     );
   }
 
+  Map<String, dynamic> toJson() {
+    return {
+      'invitation_themes': invitationThemes.map((e) => e.toJson()).toList(),
+      'iv_coin_packages': ivCoinPackages.map((e) => e.toJson()).toList(),
+    };
+  }
+
   @override
   List<Object?> get props => [invitationThemes, ivCoinPackages];
 }

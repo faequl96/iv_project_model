@@ -30,6 +30,17 @@ class InvitationDataResponse extends Equatable {
     );
   }
 
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'event_name': eventName,
+      'event_date': DateTimeConverter.toJson(eventDate),
+      'location': location,
+      'main_image_url': mainImageUrl,
+      'gallery': gallery?.toJson(),
+    };
+  }
+
   @override
   List<Object?> get props => [id, eventName, eventDate, location, mainImageUrl, gallery];
 }

@@ -49,6 +49,24 @@ class GalleryResponse extends Equatable {
     );
   }
 
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'image_url_1': imageURL1,
+      'image_url_2': imageURL2,
+      'image_url_3': imageURL3,
+      'image_url_4': imageURL4,
+      'image_url_5': imageURL5,
+      'image_url_6': imageURL6,
+      'image_url_7': imageURL7,
+      'image_url_8': imageURL8,
+      'image_url_9': imageURL9,
+      'image_url_10': imageURL10,
+      'image_url_11': imageURL11,
+      'image_url_12': imageURL12,
+    };
+  }
+
   @override
   List<Object?> get props => [
     id,

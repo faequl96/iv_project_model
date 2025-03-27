@@ -20,6 +20,10 @@ class UserResponse extends Equatable {
     );
   }
 
+  Map<String, dynamic> toJson() {
+    return {'id': id, 'role': role.toJson(), 'user_profile': userProfile?.toJson(), 'iv_coin': ivCoin?.toJson()};
+  }
+
   @override
   List<Object?> get props => [id, role, userProfile, ivCoin];
 }

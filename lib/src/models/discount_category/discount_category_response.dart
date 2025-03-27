@@ -10,6 +10,10 @@ class DiscountCategoryResponse extends Equatable {
     return DiscountCategoryResponse(id: json['id'] as int, name: json['name'] as String);
   }
 
+  Map<String, dynamic> toJson() {
+    return {'id': id, 'name': name};
+  }
+
   @override
   List<Object?> get props => [id, name];
 }

@@ -30,6 +30,17 @@ class ReviewResponse extends Equatable {
     );
   }
 
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'star': star,
+      'comment': comment,
+      'user': user?.toJson(),
+      'created_at': DateTimeConverter.toJson(createdAt),
+      'updated_at': DateTimeConverter.toJson(updatedAt),
+    };
+  }
+
   @override
   List<Object?> get props => [id, star, comment, user, createdAt, updatedAt];
 }

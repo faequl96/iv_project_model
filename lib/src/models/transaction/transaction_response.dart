@@ -68,6 +68,29 @@ class TransactionResponse extends Equatable {
     );
   }
 
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'product_type': productType.toJson(),
+      'product_name': productName,
+      'status': status.toJson(),
+      'payment_method': paymentMethod.toJson(),
+      'reference_number': referenceNumber,
+      'idr_price': idrPrice,
+      'idr_discount': idrDiscount,
+      'idr_total_price': idrTotalPrice,
+      'ivc_price': ivcPrice,
+      'ivc_discount': ivcDiscount,
+      'ivc_total_price': ivcTotalPrice,
+      'voucher_code_id': voucherCodeId,
+      'voucher_code_name': voucherCodeName,
+      'idr_voucher_code_discount': idrVoucherCodeDiscount,
+      'ivc_voucher_code_discount': ivcVoucherCodeDiscount,
+      'payment_proof_image_url': paymentProofImageUrl,
+      'created_at': DateTimeConverter.toJson(createdAt),
+    };
+  }
+
   @override
   List<Object?> get props => [
     id,

@@ -36,6 +36,19 @@ class InvitationThemeResponse extends Equatable {
     );
   }
 
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'idr_price': idrPrice,
+      'idr_discount_price': idrDiscountPrice,
+      'ivc_price': ivcPrice,
+      'ivc_discount_price': ivcDiscountPrice,
+      'categories': categories.map((e) => e.toJson()).toList(),
+      'discount_categories': discountCategories.map((e) => e.toJson()).toList(),
+    };
+  }
+
   @override
   List<Object?> get props => [id, name, idrPrice, idrDiscountPrice, ivcPrice, ivcDiscountPrice, categories, discountCategories];
 }

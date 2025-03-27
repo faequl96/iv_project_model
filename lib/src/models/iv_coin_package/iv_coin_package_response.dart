@@ -29,6 +29,17 @@ class IVCoinPackageResponse extends Equatable {
     );
   }
 
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'coin_amount': coinAmount,
+      'idr_price': idrPrice,
+      'idr_discount_price': idrDiscountPrice,
+      'discount_categories': discountCategories.map((e) => e.toJson()).toList(),
+    };
+  }
+
   @override
   List<Object?> get props => [id, name, coinAmount, idrPrice, idrDiscountPrice, discountCategories];
 }

@@ -26,6 +26,16 @@ class InvitationResponse extends Equatable {
     );
   }
 
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'status': status,
+      'invitation_theme_id': invitationThemeId,
+      'invitation_theme_name': invitationThemeName,
+      'invitation_data': invitationData?.toJson(),
+    };
+  }
+
   @override
   List<Object?> get props => [id, status, invitationThemeId, invitationThemeName, invitationData];
 }

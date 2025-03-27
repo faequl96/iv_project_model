@@ -10,6 +10,10 @@ class IVCoinResponse extends Equatable {
     return IVCoinResponse(id: json['id'] as int, balance: json['balance'] as int);
   }
 
+  Map<String, dynamic> toJson() {
+    return {'id': id, 'balance': balance};
+  }
+
   @override
   List<Object?> get props => [id, balance];
 }

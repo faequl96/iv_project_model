@@ -11,6 +11,10 @@ class VoucherCodeResponse extends Equatable {
     return VoucherCodeResponse(id: json['id'], name: json['name'], discountPercentage: json['discount_percentage']);
   }
 
+  Map<String, dynamic> toJson() {
+    return {'id': id, 'name': name, 'discount_percentage': discountPercentage};
+  }
+
   @override
   List<Object?> get props => [id, name, discountPercentage];
 }

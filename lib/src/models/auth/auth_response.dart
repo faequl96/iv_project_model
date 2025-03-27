@@ -8,7 +8,11 @@ class AuthResponse extends Equatable {
   final UserResponse user;
 
   factory AuthResponse.fromJson(Map<String, dynamic> json) {
-    return AuthResponse(token: json['token'] as String, user: UserResponse.fromJson(json['user']));
+    return AuthResponse(token: json['token'], user: UserResponse.fromJson(json['user']));
+  }
+
+  Map<String, dynamic> toJson() {
+    return {'token': token, 'user': user.toJson()};
   }
 
   @override
