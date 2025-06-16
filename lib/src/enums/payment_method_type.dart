@@ -1,4 +1,4 @@
-enum PaymentMethodType { ivCoin, manualTransfer, autoTransfer, gopay }
+enum PaymentMethodType { ivCoin, gopay, autoTransfer, manualTransfer }
 
 extension PaymentMethodTypeExtension on PaymentMethodType {
   String toJson() {

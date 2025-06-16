@@ -17,18 +17,18 @@ class CreateTransactionRequest extends Equatable {
 }
 
 class UpdateTransactionRequest extends Equatable {
-  const UpdateTransactionRequest({this.paymentMethod, this.voucherCodeId});
+  const UpdateTransactionRequest({this.paymentMethod, this.voucherCodeName});
 
   final String? paymentMethod;
-  final int? voucherCodeId;
+  final String? voucherCodeName;
 
   Map<String, dynamic> toJson() {
     return {
       if (paymentMethod != null) 'payment_method': paymentMethod,
-      if (voucherCodeId != null) 'voucher_code_id': voucherCodeId,
+      if (voucherCodeName != null) 'voucher_code_name': voucherCodeName,
     };
   }
 
   @override
-  List<Object?> get props => [paymentMethod, voucherCodeId];
+  List<Object?> get props => [paymentMethod, voucherCodeName];
 }

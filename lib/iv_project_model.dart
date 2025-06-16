@@ -6,6 +6,8 @@ export 'src/enums/product_type.dart';
 export 'src/enums/transaction_status_type.dart';
 export 'src/enums/user_role_type.dart';
 
+export 'src/models/query/query_request.dart';
+
 export 'src/models/auth/auth_request.dart';
 export 'src/models/auth/auth_response.dart';
 
