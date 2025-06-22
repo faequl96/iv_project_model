@@ -4,6 +4,7 @@ export 'src/enums/invitation_status_type.dart';
 export 'src/enums/payment_method_type.dart';
 export 'src/enums/product_type.dart';
 export 'src/enums/transaction_status_type.dart';
+export 'src/enums/midtrans_transaction_status_type.dart';
 export 'src/enums/user_role_type.dart';
 
 export 'src/models/query/query_request.dart';

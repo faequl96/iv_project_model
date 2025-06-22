@@ -23,7 +23,7 @@ class InvitationDataResponse extends Equatable {
     return InvitationDataResponse(
       id: json['id'],
       eventName: json['event_name'],
-      eventDate: DateTimeConverter.fromJson(json['event_date']),
+      eventDate: DateTimeConverter.fromJson(json['event_date']) ?? DateTime.now().toLocal(),
       location: json['location'],
       mainImageUrl: json['main_image_url'],
       gallery: json['gallery'] != null ? GalleryResponse.fromJson(json['gallery']) : null,

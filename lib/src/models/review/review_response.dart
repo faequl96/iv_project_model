@@ -16,8 +16,8 @@ class ReviewResponse extends Equatable {
   final int star;
   final String comment;
   final UserResponse? user;
-  final DateTime createdAt;
-  final DateTime updatedAt;
+  final DateTime? createdAt;
+  final DateTime? updatedAt;
 
   factory ReviewResponse.fromJson(Map<String, dynamic> json) {
     return ReviewResponse(

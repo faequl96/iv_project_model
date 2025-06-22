@@ -20,10 +20,10 @@ class IVCoinPackageResponse extends Equatable {
 
   factory IVCoinPackageResponse.fromJson(Map<String, dynamic> json) {
     return IVCoinPackageResponse(
-      id: json['id'] as int,
-      name: json['name'] as String,
-      coinAmount: json['coin_amount'] as int,
-      idrPrice: json['idr_price'] as int,
+      id: json['id'],
+      name: json['name'],
+      coinAmount: json['coin_amount'],
+      idrPrice: json['idr_price'],
       idrDiscountPrice: json['idr_discount_price'] as int,
       discountCategories: (json['discount_categories'] as List).map((e) => DiscountCategoryResponse.fromJson(e)).toList(),
     );

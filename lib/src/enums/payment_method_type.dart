@@ -1,16 +1,16 @@
-enum PaymentMethodType { ivCoin, gopay, autoTransfer, manualTransfer }
+enum PaymentMethodType { ivCoin, gopay, qris, bankTransfer }
 
 extension PaymentMethodTypeExtension on PaymentMethodType {
   String toJson() {
     switch (this) {
       case PaymentMethodType.ivCoin:
         return 'iv_coin';
-      case PaymentMethodType.manualTransfer:
-        return 'manual_transfer';
-      case PaymentMethodType.autoTransfer:
-        return 'auto_transfer';
       case PaymentMethodType.gopay:
         return 'gopay';
+      case PaymentMethodType.qris:
+        return 'qris';
+      case PaymentMethodType.bankTransfer:
+        return 'bank_transfer';
     }
   }
 
@@ -18,14 +18,27 @@ extension PaymentMethodTypeExtension on PaymentMethodType {
     switch (json) {
       case 'iv_coin':
         return PaymentMethodType.ivCoin;
-      case 'manual_transfer':
-        return PaymentMethodType.manualTransfer;
-      case 'auto_transfer':
-        return PaymentMethodType.autoTransfer;
       case 'gopay':
         return PaymentMethodType.gopay;
+      case 'qris':
+        return PaymentMethodType.qris;
+      case 'bank_transfer':
+        return PaymentMethodType.bankTransfer;
       default:
         return PaymentMethodType.ivCoin;
+    }
+  }
+
+  String toLabel() {
+    switch (this) {
+      case PaymentMethodType.ivCoin:
+        return 'IV Coin';
+      case PaymentMethodType.gopay:
+        return 'Gopay';
+      case PaymentMethodType.qris:
+        return 'QRIS';
+      case PaymentMethodType.bankTransfer:
+        return 'Bank Transfer';
     }
   }
 }
