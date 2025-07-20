@@ -19,7 +19,6 @@ class VoucherCodeResponse extends Equatable {
   final List<UserResponse> users;
 
   factory VoucherCodeResponse.fromJson(Map<String, dynamic> json) {
-    print(json['users']);
     return VoucherCodeResponse(
       id: json['id'],
       name: json['name'],

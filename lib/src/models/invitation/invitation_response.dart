@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:iv_project_model/src/models/invitation_data/invitation_data_response.dart';
+import 'package:iv_project_model/iv_project_model.dart';
 
 class InvitationResponse extends Equatable {
   const InvitationResponse({
@@ -11,7 +11,7 @@ class InvitationResponse extends Equatable {
   });
 
   final int id;
-  final String status;
+  final InvitationStatusType status;
   final int invitationThemeId;
   final String invitationThemeName;
   final InvitationDataResponse? invitationData;
@@ -19,7 +19,7 @@ class InvitationResponse extends Equatable {
   factory InvitationResponse.fromJson(Map<String, dynamic> json) {
     return InvitationResponse(
       id: json['id'],
-      status: json['status'],
+      status: InvitationStatusTypeExtension.fromJson(json['status']),
       invitationThemeId: json['invitation_theme_id'],
       invitationThemeName: json['invitation_theme_name'],
       invitationData: json['invitation_data'] != null ? InvitationDataResponse.fromJson(json['invitation_data']) : null,
@@ -29,7 +29,7 @@ class InvitationResponse extends Equatable {
   Map<String, dynamic> toJson() {
     return {
       'id': id,
-      'status': status,
+      'status': status.toJson(),
       'invitation_theme_id': invitationThemeId,
       'invitation_theme_name': invitationThemeName,
       'invitation_data': invitationData?.toJson(),

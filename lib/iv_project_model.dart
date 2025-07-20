@@ -22,7 +22,6 @@ export 'src/models/iv_coin/iv_coin_request.dart';
 export 'src/models/iv_coin/iv_coin_response.dart';
 
 export 'src/models/ad_mob/ad_mob_request.dart';
-export 'src/models/ad_mob/ad_mob_response.dart';
 
 export 'src/models/category/category_request.dart';
 export 'src/models/category/category_response.dart';
