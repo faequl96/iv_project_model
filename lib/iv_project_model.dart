@@ -23,11 +23,22 @@ export 'src/models/iv_coin/iv_coin_response.dart';
 
 export 'src/models/ad_mob/ad_mob_request.dart';
 
+export 'src/models/bank_account/bank_account_request.dart';
+export 'src/models/bank_account/bank_account_response.dart';
+
+export 'src/models/bridegroom/bridegroom_request.dart';
+export 'src/models/bridegroom/bridegroom_response.dart';
+
 export 'src/models/category/category_request.dart';
 export 'src/models/category/category_response.dart';
 
 export 'src/models/discount_category/discount_category_request.dart';
 export 'src/models/discount_category/discount_category_response.dart';
+
+export 'src/models/event/event_request.dart';
+export 'src/models/event/event_response.dart';
+
+export 'src/models/gallery/gallery_response.dart';
 
 export 'src/models/iv_coin_package/iv_coin_package_request.dart';
 export 'src/models/iv_coin_package/iv_coin_package_response.dart';
