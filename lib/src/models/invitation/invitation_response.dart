@@ -7,14 +7,14 @@ class InvitationResponse extends Equatable {
     required this.status,
     required this.invitationThemeId,
     required this.invitationThemeName,
-    this.invitationData,
+    required this.invitationData,
   });
 
   final int id;
   final InvitationStatusType status;
   final int invitationThemeId;
   final String invitationThemeName;
-  final InvitationDataResponse? invitationData;
+  final InvitationDataResponse invitationData;
 
   factory InvitationResponse.fromJson(Map<String, dynamic> json) {
     return InvitationResponse(
@@ -22,7 +22,7 @@ class InvitationResponse extends Equatable {
       status: InvitationStatusTypeExtension.fromJson(json['status']),
       invitationThemeId: json['invitation_theme_id'],
       invitationThemeName: json['invitation_theme_name'],
-      invitationData: json['invitation_data'] != null ? InvitationDataResponse.fromJson(json['invitation_data']) : null,
+      invitationData: InvitationDataResponse.fromJson(json['invitation_data']),
     );
   }
 
@@ -32,7 +32,7 @@ class InvitationResponse extends Equatable {
       'status': status.toJson(),
       'invitation_theme_id': invitationThemeId,
       'invitation_theme_name': invitationThemeName,
-      'invitation_data': invitationData?.toJson(),
+      'invitation_data': invitationData.toJson(),
     };
   }
 
