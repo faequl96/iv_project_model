@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:iv_project_model/src/models/bank_account/bank_account_response.dart';
 import 'package:iv_project_model/src/models/bridegroom/bridegroom_response.dart';
 import 'package:iv_project_model/src/models/event/event_response.dart';
 import 'package:iv_project_model/src/models/gallery/gallery_response.dart';
@@ -6,21 +7,23 @@ import 'package:iv_project_model/src/models/gallery/gallery_response.dart';
 class InvitationDataResponse extends Equatable {
   const InvitationDataResponse({
     required this.id,
-    required this.coverImageUrl,
+    this.coverImageUrl,
     required this.bride,
     required this.groom,
     required this.contractEvent,
     required this.receptionEvent,
     this.gallery,
+    this.bankAccounts = const [],
   });
 
   final int id;
-  final String coverImageUrl;
+  final String? coverImageUrl;
   final BridegroomResponse bride;
   final BridegroomResponse groom;
   final EventResponse contractEvent;
   final EventResponse receptionEvent;
   final GalleryResponse? gallery;
+  final List<BankAccountResponse> bankAccounts;
 
   factory InvitationDataResponse.fromJson(Map<String, dynamic> json) {
     return InvitationDataResponse(
@@ -31,6 +34,7 @@ class InvitationDataResponse extends Equatable {
       contractEvent: EventResponse.fromJson(json['contract_event']),
       receptionEvent: EventResponse.fromJson(json['reception_event']),
       gallery: json['gallery'] != null ? GalleryResponse.fromJson(json['gallery']) : null,
+      bankAccounts: (json['bank_accounts'] as List).map((json) => BankAccountResponse.fromJson(json)).toList(),
     );
   }
 
@@ -43,9 +47,10 @@ class InvitationDataResponse extends Equatable {
       'contract_event': contractEvent.toJson(),
       'reception_event': receptionEvent.toJson(),
       'gallery': gallery?.toJson(),
+      'bank_accounts': bankAccounts.map((e) => e.toJson()).toList(),
     };
   }
 
   @override
-  List<Object?> get props => [id, coverImageUrl, bride, groom, contractEvent, receptionEvent, gallery];
+  List<Object?> get props => [id, coverImageUrl, bride, groom, contractEvent, receptionEvent, gallery, bankAccounts];
 }

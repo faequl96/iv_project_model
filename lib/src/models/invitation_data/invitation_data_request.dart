@@ -1,36 +1,68 @@
 import 'package:equatable/equatable.dart';
-import 'package:iv_project_model/src/converters/date_time_converter.dart';
+import 'package:iv_project_model/src/models/bank_account/bank_account_request.dart';
+import 'package:iv_project_model/src/models/bridegroom/bridegroom_request.dart';
+import 'package:iv_project_model/src/models/event/event_request.dart';
 
 class CreateInvitationDataRequest extends Equatable {
-  const CreateInvitationDataRequest({required this.eventName, required this.eventDate, required this.location});
+  const CreateInvitationDataRequest({
+    this.coverImageUrl,
+    required this.bride,
+    required this.groom,
+    required this.contractEvent,
+    required this.receptionEvent,
+    this.bankAccounts = const [],
+  });
 
-  final String eventName;
-  final DateTime eventDate;
-  final String location;
-
-  Map<String, dynamic> toJson() {
-    return {'event_name': eventName, 'event_date': DateTimeConverter.toJson(eventDate), 'location': location};
-  }
-
-  @override
-  List<Object> get props => [eventName, eventDate, location];
-}
-
-class UpdateInvitationDataRequest extends Equatable {
-  const UpdateInvitationDataRequest({this.eventName, this.eventDate, this.location});
-
-  final String? eventName;
-  final DateTime? eventDate;
-  final String? location;
+  final String? coverImageUrl;
+  final CreateBridegroomRequest bride;
+  final CreateBridegroomRequest groom;
+  final CreateEventRequest contractEvent;
+  final CreateEventRequest receptionEvent;
+  final List<CreateBankAccountRequest> bankAccounts;
 
   Map<String, dynamic> toJson() {
     return {
-      if (eventName != null) 'event_name': eventName,
-      if (eventDate != null) 'event_date': DateTimeConverter.toJson(eventDate!),
-      if (location != null) 'location': location,
+      'cover_image_url': coverImageUrl,
+      'bride': bride.toJson(),
+      'groom': groom.toJson(),
+      'contract_event': contractEvent.toJson(),
+      'reception_event': receptionEvent.toJson(),
+      'bank_accounts': bankAccounts.map((e) => e.toJson()).toList(),
     };
   }
 
   @override
-  List<Object?> get props => [eventName, eventDate, location];
+  List<Object?> get props => [coverImageUrl, bride, groom, contractEvent, receptionEvent, bankAccounts];
+}
+
+class UpdateInvitationDataRequest extends Equatable {
+  const UpdateInvitationDataRequest({
+    this.coverImageUrl,
+    required this.bride,
+    required this.groom,
+    required this.contractEvent,
+    required this.receptionEvent,
+    this.bankAccounts = const [],
+  });
+
+  final String? coverImageUrl;
+  final CreateBridegroomRequest? bride;
+  final CreateBridegroomRequest? groom;
+  final CreateEventRequest? contractEvent;
+  final CreateEventRequest? receptionEvent;
+  final List<CreateBankAccountRequest> bankAccounts;
+
+  Map<String, dynamic> toJson() {
+    return {
+      'cover_image_url': coverImageUrl,
+      'bride': bride?.toJson(),
+      'groom': groom?.toJson(),
+      'contract_event': contractEvent?.toJson(),
+      'reception_event': receptionEvent?.toJson(),
+      'bank_accounts': bankAccounts.map((e) => e.toJson()).toList(),
+    };
+  }
+
+  @override
+  List<Object?> get props => [coverImageUrl, bride, groom, contractEvent, receptionEvent, bankAccounts];
 }

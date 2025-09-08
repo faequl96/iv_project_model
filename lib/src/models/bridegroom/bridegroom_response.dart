@@ -5,6 +5,7 @@ class BridegroomResponse extends Equatable {
     required this.id,
     required this.nickname,
     required this.fullName,
+    this.imageUrl,
     required this.fatherName,
     required this.motherName,
   });
@@ -12,6 +13,7 @@ class BridegroomResponse extends Equatable {
   final int id;
   final String nickname;
   final String fullName;
+  final String? imageUrl;
   final String fatherName;
   final String motherName;
 
@@ -19,6 +21,7 @@ class BridegroomResponse extends Equatable {
     return BridegroomResponse(
       id: json['id'],
       nickname: json['nickname'],
+      imageUrl: json['image_url'],
       fullName: json['full_name'],
       fatherName: json['father_name'],
       motherName: json['mother_name'],
@@ -26,9 +29,16 @@ class BridegroomResponse extends Equatable {
   }
 
   Map<String, dynamic> toJson() {
-    return {'id': id, 'nickname': nickname, 'full_name': fullName, 'father_name': fatherName, 'mother_name': motherName};
+    return {
+      'id': id,
+      'nickname': nickname,
+      'full_name': fullName,
+      'image_url': imageUrl,
+      'father_name': fatherName,
+      'mother_name': motherName,
+    };
   }
 
   @override
-  List<Object?> get props => [id, nickname, fullName, fatherName, motherName];
+  List<Object?> get props => [id, nickname, fullName, imageUrl, fatherName, motherName];
 }

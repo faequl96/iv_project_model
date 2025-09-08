@@ -36,7 +36,7 @@ class VoucherCodeResponse extends Equatable {
       'discount_percentage': discountPercentage,
       'usage_limit_per_user': usageLimitPerUser,
       'is_global': isGlobal,
-      'users': users,
+      'users': users.map((e) => e.toJson()).toList(),
     };
   }
 
