@@ -5,7 +5,7 @@ class EventResponse extends Equatable {
   const EventResponse({
     required this.id,
     required this.startTime,
-    this.finishTime,
+    this.endTime,
     required this.place,
     required this.address,
     required this.mapsUrl,
@@ -13,7 +13,7 @@ class EventResponse extends Equatable {
 
   final int id;
   final DateTime startTime;
-  final DateTime? finishTime;
+  final DateTime? endTime;
   final String place;
   final String address;
   final String mapsUrl;
@@ -22,7 +22,7 @@ class EventResponse extends Equatable {
     return EventResponse(
       id: json['id'],
       startTime: DateTimeConverter.fromJson(json['start_time']) ?? DateTime.now().toLocal(),
-      finishTime: json['start_time'] != null ? DateTimeConverter.fromJson(json['finish_time']) ?? DateTime.now().toLocal() : null,
+      endTime: json['start_time'] != null ? DateTimeConverter.fromJson(json['end_time']) ?? DateTime.now().toLocal() : null,
       place: json['place'],
       address: json['address'],
       mapsUrl: json['maps_url'],
@@ -33,7 +33,7 @@ class EventResponse extends Equatable {
     return {
       'id': id,
       'start_time': DateTimeConverter.toJson(startTime),
-      'finish_time': DateTimeConverter.toJson(finishTime),
+      'end_time': DateTimeConverter.toJson(endTime),
       'place': place,
       'address': address,
       'maps_url': mapsUrl,
@@ -41,5 +41,5 @@ class EventResponse extends Equatable {
   }
 
   @override
-  List<Object?> get props => [id, startTime, finishTime, place, address, mapsUrl];
+  List<Object?> get props => [id, startTime, endTime, place, address, mapsUrl];
 }
