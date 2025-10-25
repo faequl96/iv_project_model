@@ -1,6 +1,7 @@
 library;
 
 export 'src/enums/invitation_status_type.dart';
+export 'src/enums/lang_type.dart';
 export 'src/enums/payment_method_type.dart';
 export 'src/enums/product_type.dart';
 export 'src/enums/transaction_status_type.dart';
@@ -37,6 +38,9 @@ export 'src/models/discount_category/discount_category_response.dart';
 
 export 'src/models/event/event_request.dart';
 export 'src/models/event/event_response.dart';
+
+export 'src/models/general/general_request.dart';
+export 'src/models/general/general_response.dart';
 
 export 'src/models/gallery/gallery_response.dart';
 

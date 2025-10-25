@@ -1,13 +1,10 @@
 import 'package:equatable/equatable.dart';
-import 'package:iv_project_model/src/models/bank_account/bank_account_response.dart';
-import 'package:iv_project_model/src/models/bridegroom/bridegroom_response.dart';
-import 'package:iv_project_model/src/models/event/event_response.dart';
-import 'package:iv_project_model/src/models/gallery/gallery_response.dart';
+import 'package:iv_project_model/iv_project_model.dart';
 
 class InvitationDataResponse extends Equatable {
   const InvitationDataResponse({
     required this.id,
-    this.coverImageUrl,
+    required this.general,
     required this.bride,
     required this.groom,
     required this.contractEvent,
@@ -17,7 +14,7 @@ class InvitationDataResponse extends Equatable {
   });
 
   final int id;
-  final String? coverImageUrl;
+  final GeneralResponse general;
   final BridegroomResponse bride;
   final BridegroomResponse groom;
   final EventResponse contractEvent;
@@ -28,7 +25,7 @@ class InvitationDataResponse extends Equatable {
   factory InvitationDataResponse.fromJson(Map<String, dynamic> json) {
     return InvitationDataResponse(
       id: json['id'],
-      coverImageUrl: json['cover_image_url'],
+      general: GeneralResponse.fromJson(json['general']),
       bride: BridegroomResponse.fromJson(json['bride']),
       groom: BridegroomResponse.fromJson(json['groom']),
       contractEvent: EventResponse.fromJson(json['contract_event']),
@@ -41,7 +38,7 @@ class InvitationDataResponse extends Equatable {
   Map<String, dynamic> toJson() {
     return {
       'id': id,
-      'cover_image_url': coverImageUrl,
+      'general': general.toJson(),
       'bride': bride.toJson(),
       'groom': groom.toJson(),
       'contract_event': contractEvent.toJson(),
@@ -52,5 +49,5 @@ class InvitationDataResponse extends Equatable {
   }
 
   @override
-  List<Object?> get props => [id, coverImageUrl, bride, groom, contractEvent, receptionEvent, gallery, bankAccounts];
+  List<Object?> get props => [id, general, bride, groom, contractEvent, receptionEvent, gallery, bankAccounts];
 }

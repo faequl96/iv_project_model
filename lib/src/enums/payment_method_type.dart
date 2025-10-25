@@ -32,7 +32,7 @@ extension PaymentMethodTypeExtension on PaymentMethodType {
   String toLabel() {
     switch (this) {
       case PaymentMethodType.ivCoin:
-        return 'IV Coin';
+        return 'IV COIN';
       case PaymentMethodType.gopay:
         return 'Gopay';
       case PaymentMethodType.qris:

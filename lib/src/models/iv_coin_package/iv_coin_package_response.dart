@@ -11,7 +11,7 @@ class IVCoinPackageResponse extends Equatable {
     required this.discountCategories,
   });
 
-  final int id;
+  final String id;
   final String name;
   final int coinAmount;
   final int idrPrice;

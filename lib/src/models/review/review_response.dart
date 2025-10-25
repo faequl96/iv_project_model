@@ -3,14 +3,7 @@ import 'package:iv_project_model/src/converters/date_time_converter.dart';
 import 'package:iv_project_model/src/models/user/user_response.dart';
 
 class ReviewResponse extends Equatable {
-  const ReviewResponse({
-    required this.id,
-    required this.star,
-    required this.comment,
-    required this.user,
-    required this.createdAt,
-    required this.updatedAt,
-  });
+  const ReviewResponse({required this.id, required this.star, required this.comment, this.user, this.createdAt, this.updatedAt});
 
   final int id;
   final int star;

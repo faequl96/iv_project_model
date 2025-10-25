@@ -1,11 +1,11 @@
 name: iv_project_model
 description: "IV Project Model"
-version: 0.0.8
+version: 0.0.9
 homepage:
 publish_to: none
 
 environment:
-  sdk: ^3.9.0
+  sdk: ^3.9.2
   flutter: ">=1.17.0"
 
 dependencies:
@@ -13,6 +13,7 @@ dependencies:
     sdk: flutter
   
   equatable: ^2.0.7
+  dio: ^5.9.0
 
 dev_dependencies:
   flutter_test:

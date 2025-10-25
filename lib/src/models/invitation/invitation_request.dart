@@ -1,31 +1,68 @@
+import 'dart:io';
+
+import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
-import 'package:iv_project_model/src/models/invitation_data/invitation_data_request.dart';
+import 'package:iv_project_model/iv_project_model.dart';
 
 class CreateInvitationRequest extends Equatable {
-  const CreateInvitationRequest({required this.invitationData, required this.userId, required this.invitationThemeId});
+  const CreateInvitationRequest({required this.userId, required this.invitationThemeId, required this.invitationData});
 
-  final CreateInvitationDataRequest invitationData;
   final String userId;
   final int invitationThemeId;
+  final CreateInvitationDataRequest invitationData;
 
   Map<String, dynamic> toJson() {
-    return {'invitation_data': invitationData.toJson(), 'user_id': userId, 'invitation_theme_id': invitationThemeId};
+    return {'user_id': userId, 'invitation_theme_id': invitationThemeId, 'invitation_data': invitationData.toJson()};
   }
 
   @override
-  List<Object?> get props => [invitationData, userId, invitationThemeId];
+  List<Object?> get props => [userId, invitationThemeId, invitationData];
 }
 
 class UpdateInvitationRequest extends Equatable {
   const UpdateInvitationRequest({this.status, this.invitationData});
 
-  final String? status;
+  final InvitationStatusType? status;
   final UpdateInvitationDataRequest? invitationData;
 
   Map<String, dynamic> toJson() {
-    return {if (status != null) 'status': status, if (invitationData != null) 'invitation_data': invitationData!.toJson()};
+    return {
+      if (status != null) 'status': status!.toJson(),
+      if (invitationData != null) 'invitation_data': invitationData!.toJson(),
+    };
   }
 
   @override
   List<Object?> get props => [status, invitationData];
+}
+
+class InvitationImageRequest extends Equatable {
+  const InvitationImageRequest({
+    this.coverImage,
+    this.brideImage,
+    this.groomImage,
+    this.galleries = const [null, null, null, null, null, null, null, null, null, null, null, null],
+  });
+
+  final File? coverImage;
+  final File? brideImage;
+  final File? groomImage;
+  final List<File?> galleries;
+
+  Future<Map<String, dynamic>> toFormDataMap() async {
+    final map = <String, dynamic>{};
+
+    if (coverImage != null) map['cover_image'] = await MultipartFile.fromFile(coverImage!.path, filename: 'cover_image');
+    if (brideImage != null) map['bride_image'] = await MultipartFile.fromFile(brideImage!.path, filename: 'bride_image');
+    if (groomImage != null) map['groom_image'] = await MultipartFile.fromFile(groomImage!.path, filename: 'groom_image');
+    for (int i = 0; i < galleries.length; i++) {
+      final image = galleries[i];
+      if (image != null) map['image_${i + 1}'] = await MultipartFile.fromFile(image.path, filename: 'image_${i + 1}');
+    }
+
+    return map;
+  }
+
+  @override
+  List<Object?> get props => [coverImage, brideImage, groomImage, galleries];
 }

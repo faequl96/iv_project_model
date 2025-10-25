@@ -56,7 +56,7 @@ class TransactionResponse extends Equatable {
   final int idrVoucherCodeDiscount;
   final int ivcVoucherCodeDiscount;
   final String paymentProofImageUrl;
-  final DateTime? createdAt;
+  final DateTime createdAt;
 
   factory TransactionResponse.fromJson(Map<String, dynamic> json) {
     return TransactionResponse(
@@ -83,7 +83,7 @@ class TransactionResponse extends Equatable {
       idrVoucherCodeDiscount: json['idr_voucher_code_discount'],
       ivcVoucherCodeDiscount: json['ivc_voucher_code_discount'],
       paymentProofImageUrl: json['payment_proof_image_url'],
-      createdAt: DateTimeConverter.fromJson(json['created_at']),
+      createdAt: DateTimeConverter.fromJson(json['created_at'])!,
     );
   }
 

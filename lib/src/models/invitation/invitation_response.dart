@@ -5,23 +5,29 @@ class InvitationResponse extends Equatable {
   const InvitationResponse({
     required this.id,
     required this.status,
+    required this.transactionId,
     required this.invitationThemeId,
     required this.invitationThemeName,
+    required this.remainingEditCount,
     required this.invitationData,
   });
 
-  final int id;
+  final String id;
   final InvitationStatusType status;
+  final String transactionId;
   final int invitationThemeId;
   final String invitationThemeName;
+  final int remainingEditCount;
   final InvitationDataResponse invitationData;
 
   factory InvitationResponse.fromJson(Map<String, dynamic> json) {
     return InvitationResponse(
       id: json['id'],
       status: InvitationStatusTypeExtension.fromJson(json['status']),
+      transactionId: json['transaction_id'],
       invitationThemeId: json['invitation_theme_id'],
       invitationThemeName: json['invitation_theme_name'],
+      remainingEditCount: json['remaining_edit_count'],
       invitationData: InvitationDataResponse.fromJson(json['invitation_data']),
     );
   }
@@ -30,12 +36,22 @@ class InvitationResponse extends Equatable {
     return {
       'id': id,
       'status': status.toJson(),
+      'transaction_id': transactionId,
       'invitation_theme_id': invitationThemeId,
       'invitation_theme_name': invitationThemeName,
+      'remaining_edit_count': remainingEditCount,
       'invitation_data': invitationData.toJson(),
     };
   }
 
   @override
-  List<Object?> get props => [id, status, invitationThemeId, invitationThemeName, invitationData];
+  List<Object?> get props => [
+    id,
+    status,
+    transactionId,
+    invitationThemeId,
+    invitationThemeName,
+    remainingEditCount,
+    invitationData,
+  ];
 }

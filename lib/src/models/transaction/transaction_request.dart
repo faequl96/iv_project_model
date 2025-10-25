@@ -5,7 +5,7 @@ class CreateTransactionRequest extends Equatable {
   const CreateTransactionRequest({required this.productType, required this.productId, required this.userId});
 
   final ProductType productType;
-  final int productId;
+  final String productId;
   final String userId;
 
   Map<String, dynamic> toJson() {
