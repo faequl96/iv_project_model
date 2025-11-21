@@ -1,52 +1,46 @@
 import 'package:equatable/equatable.dart';
+import 'package:iv_project_model/iv_project_model.dart';
+import 'package:iv_project_model/src/converters/date_time_converter.dart';
 
 class RSVPResponse extends Equatable {
   const RSVPResponse({
     required this.id,
-    required this.invitationId,
-    required this.invitedGuestId,
-    required this.nickname,
-    required this.avatar,
-    required this.invited,
-    required this.attendance,
+    required this.invitedGuest,
     required this.message,
+    required this.createdAt,
+    this.nickname,
+    this.possiblePresence,
   });
 
   final int id;
-  final int invitationId;
-  final String invitedGuestId;
-  final String nickname;
-  final String avatar;
-  final bool invited;
-  final String attendance;
+  final InvitedGuestResponse invitedGuest;
   final String message;
+  final DateTime createdAt;
+  final String? nickname;
+  final String? possiblePresence;
 
   factory RSVPResponse.fromJson(Map<String, dynamic> json) {
     return RSVPResponse(
       id: json['id'],
-      invitationId: json['invitation_id'],
-      invitedGuestId: json['invited_guest_id'],
-      nickname: json['nickname'],
-      avatar: json['avatar'],
-      invited: json['invited'],
-      attendance: json['attendance'],
+      invitedGuest: InvitedGuestResponse.fromJson(json['invited_guest']),
       message: json['message'],
+      createdAt: DateTimeConverter.fromJson(json['created_at'])!,
+      nickname: json['nickname'],
+      possiblePresence: json['possible_presence'],
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
       'id': id,
-      'invitation_id': invitationId,
-      'invited_guest_id': invitedGuestId,
-      'nickname': nickname,
-      'avatar': avatar,
-      'invited': invited,
-      'attendance': attendance,
+      'invited_guest': invitedGuest.toJson(),
       'message': message,
+      'created_at': DateTimeConverter.toJson(createdAt),
+      'nickname': nickname,
+      'possible_presence': possiblePresence,
     };
   }
 
   @override
-  List<Object?> get props => [id, invitationId, invitedGuestId, nickname, avatar, invited, attendance, message];
+  List<Object?> get props => [id, invitedGuest, message, createdAt, nickname, possiblePresence];
 }

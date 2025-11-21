@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart';
 class BridegroomResponse extends Equatable {
   const BridegroomResponse({
     required this.id,
-    this.imageUrl,
+    required this.imageUrl,
     required this.nickname,
     required this.fullName,
     this.frontTitle,
@@ -17,7 +17,7 @@ class BridegroomResponse extends Equatable {
   });
 
   final int id;
-  final String? imageUrl;
+  final String imageUrl;
   final String nickname;
   final String fullName;
   final String? frontTitle;

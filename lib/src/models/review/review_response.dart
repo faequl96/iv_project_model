@@ -3,13 +3,20 @@ import 'package:iv_project_model/src/converters/date_time_converter.dart';
 import 'package:iv_project_model/src/models/user/user_response.dart';
 
 class ReviewResponse extends Equatable {
-  const ReviewResponse({required this.id, required this.star, required this.comment, this.user, this.createdAt, this.updatedAt});
+  const ReviewResponse({
+    required this.id,
+    required this.star,
+    required this.comment,
+    this.user,
+    required this.createdAt,
+    this.updatedAt,
+  });
 
   final int id;
   final int star;
   final String comment;
   final UserResponse? user;
-  final DateTime? createdAt;
+  final DateTime createdAt;
   final DateTime? updatedAt;
 
   factory ReviewResponse.fromJson(Map<String, dynamic> json) {
@@ -18,7 +25,7 @@ class ReviewResponse extends Equatable {
       star: json['star'],
       comment: json['comment'],
       user: json['user'] != null ? UserResponse.fromJson(json['user']) : null,
-      createdAt: DateTimeConverter.fromJson(json['created_at']),
+      createdAt: DateTimeConverter.fromJson(json['created_at'])!,
       updatedAt: DateTimeConverter.fromJson(json['updated_at']),
     );
   }

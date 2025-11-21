@@ -3,53 +3,62 @@ import 'package:equatable/equatable.dart';
 class CreateInvitedGuestRequest extends Equatable {
   const CreateInvitedGuestRequest({
     required this.invitationId,
-    required this.nameInstance,
+    this.phone,
     required this.name,
-    required this.instance,
-    required this.nickname,
-    required this.avatar,
-    required this.attendance,
+    required this.nameInstance,
+    this.souvenir,
   });
 
-  final int invitationId;
-  final String nameInstance;
+  final String invitationId;
+  final String? phone;
   final String name;
-  final String instance;
-  final String nickname;
-  final String avatar;
-  final String attendance;
+  final String nameInstance;
+  final String? souvenir;
 
   Map<String, dynamic> toJson() {
     return {
       'invitation_id': invitationId,
-      'name_instance': nameInstance,
+      'phone': phone,
       'name': name,
-      'instance': instance,
-      'nickname': nickname,
-      'avatar': avatar,
-      'attendance': attendance,
+      'name_instance': nameInstance,
+      if (souvenir != null) 'souvenir': souvenir,
     };
   }
 
   @override
-  List<Object?> get props => [invitationId, nameInstance, name, instance, nickname, avatar, attendance];
+  List<Object?> get props => [invitationId, phone, name, nameInstance, souvenir];
 }
 
 class UpdateInvitedGuestRequest extends Equatable {
-  const UpdateInvitedGuestRequest({this.nickname, this.avatar, this.attendance});
+  const UpdateInvitedGuestRequest({this.nickname, this.avatar, this.possiblePresence, this.attendance});
 
   final String? nickname;
   final String? avatar;
-  final String? attendance;
+  final String? possiblePresence;
+  final bool? attendance;
 
   Map<String, dynamic> toJson() {
     return {
       if (nickname != null) 'nickname': nickname,
       if (avatar != null) 'avatar': avatar,
+      if (possiblePresence != null) 'possible_presence': possiblePresence,
       if (attendance != null) 'attendance': attendance,
     };
   }
 
   @override
-  List<Object?> get props => [nickname, avatar, attendance];
+  List<Object?> get props => [nickname, avatar, possiblePresence, attendance];
+}
+
+class BulkInvitedGuestRequest extends Equatable {
+  const BulkInvitedGuestRequest({required this.invitedGuests});
+
+  final List<CreateInvitedGuestRequest> invitedGuests;
+
+  Map<String, dynamic> toJson() {
+    return {'invited_guests': invitedGuests.map((e) => e.toJson()).toList()};
+  }
+
+  @override
+  List<Object?> get props => [invitedGuests];
 }

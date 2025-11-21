@@ -15,27 +15,21 @@ class UserResponse extends Equatable {
   final String id;
   final String unixId;
   final UserRoleType role;
-  final UserProfileResponse? userProfile;
-  final IVCoinResponse? ivCoin;
+  final UserProfileResponse userProfile;
+  final IVCoinResponse ivCoin;
 
   factory UserResponse.fromJson(Map<String, dynamic> json) {
     return UserResponse(
       id: json['id'] as String,
       unixId: json['unix_id'] as String,
       role: UserRoleTypeExtension.fromJson(json['role']),
-      userProfile: json['user_profile'] != null ? UserProfileResponse.fromJson(json['user_profile']) : null,
-      ivCoin: json['iv_coin'] != null ? IVCoinResponse.fromJson(json['iv_coin']) : null,
+      userProfile: UserProfileResponse.fromJson(json['user_profile']),
+      ivCoin: IVCoinResponse.fromJson(json['iv_coin']),
     );
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'unix_id': unixId,
-      'role': role.toJson(),
-      'user_profile': userProfile?.toJson(),
-      'iv_coin': ivCoin?.toJson(),
-    };
+    return {'id': id, 'unix_id': unixId, 'role': role.toJson(), 'user_profile': userProfile.toJson(), 'iv_coin': ivCoin.toJson()};
   }
 
   @override

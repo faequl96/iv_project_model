@@ -56,11 +56,19 @@ export 'src/models/discount/discount_response.dart';
 export 'src/models/review/review_request.dart';
 export 'src/models/review/review_response.dart';
 
+export 'src/models/brand_profile/brand_profile_response.dart';
+
 export 'src/models/invitation/invitation_request.dart';
 export 'src/models/invitation/invitation_response.dart';
 
 export 'src/models/invitation_data/invitation_data_request.dart';
 export 'src/models/invitation_data/invitation_data_response.dart';
+
+export 'src/models/invited_guest/invited_guest_request.dart';
+export 'src/models/invited_guest/invited_guest_response.dart';
+
+export 'src/models/rsvp/rsvp_request.dart';
+export 'src/models/rsvp/rsvp_response.dart';
 
 export 'src/models/transaction/transaction_request.dart';
 export 'src/models/transaction/transaction_response.dart';

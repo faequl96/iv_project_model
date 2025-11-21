@@ -26,7 +26,7 @@ class EventResponse extends Equatable {
     return EventResponse(
       id: json['id'],
       startTime: DateTimeConverter.fromJson(json['start_time']) ?? DateTime.now().toLocal(),
-      endTime: json['start_time'] != null ? DateTimeConverter.fromJson(json['end_time']) ?? DateTime.now().toLocal() : null,
+      endTime: json['end_time'] != null ? DateTimeConverter.fromJson(json['end_time']) ?? DateTime.now().toLocal() : null,
       mapsUrl: json['maps_url'],
       latitude: json['latitude'],
       longitude: json['longitude'],

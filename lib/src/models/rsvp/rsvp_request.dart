@@ -4,33 +4,27 @@ class RSVPRequest extends Equatable {
   const RSVPRequest({
     required this.invitationId,
     required this.invitedGuestId,
-    required this.nickname,
-    required this.avatar,
-    required this.invited,
-    required this.attendance,
     required this.message,
+    this.nickname,
+    this.possiblePresence,
   });
 
-  final int invitationId;
+  final String invitationId;
   final String invitedGuestId;
-  final String nickname;
-  final String avatar;
-  final bool invited;
-  final String attendance;
   final String message;
+  final String? nickname;
+  final String? possiblePresence;
 
   Map<String, dynamic> toJson() {
     return {
       'invitation_id': invitationId,
       'invited_guest_id': invitedGuestId,
-      'nickname': nickname,
-      'avatar': avatar,
-      'invited': invited,
-      'attendance': attendance,
       'message': message,
+      'nickname': nickname,
+      'possible_presence': possiblePresence,
     };
   }
 
   @override
-  List<Object?> get props => [invitationId, invitedGuestId, nickname, avatar, invited, attendance, message];
+  List<Object?> get props => [invitationId, invitedGuestId, message, nickname, possiblePresence];
 }

@@ -3,50 +3,54 @@ import 'package:equatable/equatable.dart';
 class InvitedGuestResponse extends Equatable {
   const InvitedGuestResponse({
     required this.id,
-    required this.invitationId,
-    required this.nameInstance,
-    required this.name,
-    required this.instance,
+    this.phone,
     required this.nickname,
-    required this.avatar,
-    required this.attendance,
+    required this.nameInstance,
+    required this.invited,
+    this.avatar,
+    this.possiblePresence = '',
+    this.attendance,
+    this.souvenir,
   });
 
-  final int id;
-  final int invitationId;
-  final String nameInstance;
-  final String name;
-  final String instance;
+  final String id;
+  final String? phone;
   final String nickname;
-  final String avatar;
-  final String attendance;
+  final String nameInstance;
+  final bool invited;
+  final String? avatar;
+  final String? possiblePresence;
+  final bool? attendance;
+  final String? souvenir;
 
   factory InvitedGuestResponse.fromJson(Map<String, dynamic> json) {
     return InvitedGuestResponse(
       id: json['id'],
-      invitationId: json['invitation_id'],
-      nameInstance: json['name_instance'],
-      name: json['name'],
-      instance: json['instance'],
+      phone: json['phone'],
       nickname: json['nickname'],
+      nameInstance: json['name_instance'],
+      invited: json['invited'],
       avatar: json['avatar'],
+      possiblePresence: json['possible_presence'],
       attendance: json['attendance'],
+      souvenir: json['souvenir'],
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
       'id': id,
-      'invitation_id': invitationId,
-      'name_instance': nameInstance,
-      'name': name,
-      'instance': instance,
+      'phone': phone,
       'nickname': nickname,
+      'name_instance': nameInstance,
+      'invited': invited,
       'avatar': avatar,
+      'possible_presence': possiblePresence,
       'attendance': attendance,
+      'souvenir': souvenir,
     };
   }
 
   @override
-  List<Object?> get props => [id, invitationId, nameInstance, name, instance, nickname, avatar, attendance];
+  List<Object?> get props => [id, phone, nickname, nameInstance, invited, avatar, possiblePresence, attendance, souvenir];
 }

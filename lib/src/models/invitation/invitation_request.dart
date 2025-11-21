@@ -5,18 +5,17 @@ import 'package:equatable/equatable.dart';
 import 'package:iv_project_model/iv_project_model.dart';
 
 class CreateInvitationRequest extends Equatable {
-  const CreateInvitationRequest({required this.userId, required this.invitationThemeId, required this.invitationData});
+  const CreateInvitationRequest({required this.invitationThemeId, required this.invitationData});
 
-  final String userId;
   final int invitationThemeId;
   final CreateInvitationDataRequest invitationData;
 
   Map<String, dynamic> toJson() {
-    return {'user_id': userId, 'invitation_theme_id': invitationThemeId, 'invitation_data': invitationData.toJson()};
+    return {'invitation_theme_id': invitationThemeId, 'invitation_data': invitationData.toJson()};
   }
 
   @override
-  List<Object?> get props => [userId, invitationThemeId, invitationData];
+  List<Object?> get props => [invitationThemeId, invitationData];
 }
 
 class UpdateInvitationRequest extends Equatable {

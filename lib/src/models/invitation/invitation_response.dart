@@ -9,6 +9,7 @@ class InvitationResponse extends Equatable {
     required this.invitationThemeId,
     required this.invitationThemeName,
     required this.remainingEditCount,
+    required this.brandProfile,
     required this.invitationData,
   });
 
@@ -18,6 +19,7 @@ class InvitationResponse extends Equatable {
   final int invitationThemeId;
   final String invitationThemeName;
   final int remainingEditCount;
+  final BrandProfileResponse brandProfile;
   final InvitationDataResponse invitationData;
 
   factory InvitationResponse.fromJson(Map<String, dynamic> json) {
@@ -28,6 +30,7 @@ class InvitationResponse extends Equatable {
       invitationThemeId: json['invitation_theme_id'],
       invitationThemeName: json['invitation_theme_name'],
       remainingEditCount: json['remaining_edit_count'],
+      brandProfile: BrandProfileResponse.fromJson(json['brand_profile']),
       invitationData: InvitationDataResponse.fromJson(json['invitation_data']),
     );
   }
@@ -40,6 +43,7 @@ class InvitationResponse extends Equatable {
       'invitation_theme_id': invitationThemeId,
       'invitation_theme_name': invitationThemeName,
       'remaining_edit_count': remainingEditCount,
+      'brand_profile': brandProfile.toJson(),
       'invitation_data': invitationData.toJson(),
     };
   }
@@ -52,6 +56,7 @@ class InvitationResponse extends Equatable {
     invitationThemeId,
     invitationThemeName,
     remainingEditCount,
+    brandProfile,
     invitationData,
   ];
 }
