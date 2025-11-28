@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 
 class UserProfileRequest extends Equatable {
@@ -33,12 +32,8 @@ class LogoImageRequest extends Equatable {
 
   final File? logoImage;
 
-  Future<Map<String, dynamic>> toFormDataMap() async {
-    final map = <String, dynamic>{};
-
-    if (logoImage != null) map['logo_image'] = await MultipartFile.fromFile(logoImage!.path, filename: 'logo_image');
-
-    return map;
+  Future<Map<String, dynamic>> toFormDataMap(Future<Map<String, dynamic>> Function(File? logoImage) getValue) {
+    return getValue(logoImage);
   }
 
   @override

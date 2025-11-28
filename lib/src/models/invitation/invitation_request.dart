@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 import 'package:iv_project_model/iv_project_model.dart';
 
@@ -48,18 +47,10 @@ class InvitationImageRequest extends Equatable {
   final File? groomImage;
   final List<File?> galleries;
 
-  Future<Map<String, dynamic>> toFormDataMap() async {
-    final map = <String, dynamic>{};
-
-    if (coverImage != null) map['cover_image'] = await MultipartFile.fromFile(coverImage!.path, filename: 'cover_image');
-    if (brideImage != null) map['bride_image'] = await MultipartFile.fromFile(brideImage!.path, filename: 'bride_image');
-    if (groomImage != null) map['groom_image'] = await MultipartFile.fromFile(groomImage!.path, filename: 'groom_image');
-    for (int i = 0; i < galleries.length; i++) {
-      final image = galleries[i];
-      if (image != null) map['image_${i + 1}'] = await MultipartFile.fromFile(image.path, filename: 'image_${i + 1}');
-    }
-
-    return map;
+  Future<Map<String, dynamic>> toFormDataMap(
+    Future<Map<String, dynamic>> Function(File? coverImage, File? brideImage, File? groomImage, List<File?> galleries) getValue,
+  ) {
+    return getValue(coverImage, brideImage, groomImage, galleries);
   }
 
   @override
