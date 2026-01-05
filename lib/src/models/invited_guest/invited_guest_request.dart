@@ -1,16 +1,29 @@
 import 'package:equatable/equatable.dart';
 
+class CheckInvitedGuestRequest extends Equatable {
+  const CheckInvitedGuestRequest({required this.invitationId});
+
+  final String invitationId;
+
+  Map<String, dynamic> toJson() {
+    return {'invitation_id': invitationId};
+  }
+
+  @override
+  List<Object?> get props => [invitationId];
+}
+
 class CreateInvitedGuestRequest extends Equatable {
   const CreateInvitedGuestRequest({
     required this.invitationId,
-    this.phone,
+    required this.phone,
     required this.name,
     required this.nameInstance,
     this.souvenir,
   });
 
   final String invitationId;
-  final String? phone;
+  final String phone;
   final String name;
   final String nameInstance;
   final String? souvenir;

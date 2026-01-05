@@ -9,6 +9,7 @@ class RSVPResponse extends Equatable {
     required this.message,
     required this.createdAt,
     this.nickname,
+    this.avatar,
     this.possiblePresence,
   });
 
@@ -17,6 +18,7 @@ class RSVPResponse extends Equatable {
   final String message;
   final DateTime createdAt;
   final String? nickname;
+  final String? avatar;
   final String? possiblePresence;
 
   factory RSVPResponse.fromJson(Map<String, dynamic> json) {
@@ -26,6 +28,7 @@ class RSVPResponse extends Equatable {
       message: json['message'],
       createdAt: DateTimeConverter.fromJson(json['created_at'])!,
       nickname: json['nickname'],
+      avatar: json['avatar'],
       possiblePresence: json['possible_presence'],
     );
   }
@@ -37,10 +40,11 @@ class RSVPResponse extends Equatable {
       'message': message,
       'created_at': DateTimeConverter.toJson(createdAt),
       'nickname': nickname,
+      'avatar': avatar,
       'possible_presence': possiblePresence,
     };
   }
 
   @override
-  List<Object?> get props => [id, invitedGuest, message, createdAt, nickname, possiblePresence];
+  List<Object?> get props => [id, invitedGuest, message, createdAt, nickname, avatar, possiblePresence];
 }
