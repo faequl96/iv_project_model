@@ -1,5 +1,6 @@
 library;
 
+export 'src/converters/date_time_converter.dart';
 export 'src/enums/invitation_status_type.dart';
 export 'src/enums/lang_type.dart';
 export 'src/enums/payment_method_type.dart';

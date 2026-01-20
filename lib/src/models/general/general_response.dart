@@ -5,6 +5,7 @@ class GeneralResponse extends Equatable {
   const GeneralResponse({
     required this.id,
     required this.lang,
+    this.musicAudioUrl,
     this.coverImageUrl,
     required this.opening,
     required this.openingQuote,
@@ -16,6 +17,7 @@ class GeneralResponse extends Equatable {
 
   final int id;
   final LangType lang;
+  final String? musicAudioUrl;
   final String? coverImageUrl;
   final String opening;
   final String openingQuote;
@@ -28,6 +30,7 @@ class GeneralResponse extends Equatable {
     return GeneralResponse(
       id: json['id'],
       lang: LangTypeExtension.fromJson(json['lang']),
+      musicAudioUrl: json['music_audio_url'],
       coverImageUrl: json['cover_image_url'],
       opening: json['opening'],
       openingQuote: json['opening_quote'],
@@ -43,6 +46,7 @@ class GeneralResponse extends Equatable {
       'id': id,
       'lang': lang.toJson(),
       'cover_image_url': coverImageUrl,
+      'music_audio_url': musicAudioUrl,
       'opening': opening,
       'opening_quote': openingQuote,
       'quote_from': quoteFrom,
@@ -53,5 +57,16 @@ class GeneralResponse extends Equatable {
   }
 
   @override
-  List<Object?> get props => [id, lang, coverImageUrl, opening, openingQuote, quoteFrom, regards, greeting, closing];
+  List<Object?> get props => [
+    id,
+    lang,
+    musicAudioUrl,
+    coverImageUrl,
+    opening,
+    openingQuote,
+    quoteFrom,
+    regards,
+    greeting,
+    closing,
+  ];
 }

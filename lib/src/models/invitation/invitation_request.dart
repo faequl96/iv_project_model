@@ -36,23 +36,32 @@ class UpdateInvitationRequest extends Equatable {
 
 class InvitationImageRequest extends Equatable {
   const InvitationImageRequest({
+    this.musicAudio,
     this.coverImage,
     this.brideImage,
     this.groomImage,
     this.galleries = const [null, null, null, null, null, null, null, null, null, null, null, null],
   });
 
+  final File? musicAudio;
   final File? coverImage;
   final File? brideImage;
   final File? groomImage;
   final List<File?> galleries;
 
   Future<Map<String, dynamic>> toFormDataMap(
-    Future<Map<String, dynamic>> Function(File? coverImage, File? brideImage, File? groomImage, List<File?> galleries) getValue,
+    Future<Map<String, dynamic>> Function(
+      File? musicAudio,
+      File? coverImage,
+      File? brideImage,
+      File? groomImage,
+      List<File?> galleries,
+    )
+    getValue,
   ) {
-    return getValue(coverImage, brideImage, groomImage, galleries);
+    return getValue(musicAudio, coverImage, brideImage, groomImage, galleries);
   }
 
   @override
-  List<Object?> get props => [coverImage, brideImage, groomImage, galleries];
+  List<Object?> get props => [musicAudio, coverImage, brideImage, groomImage, galleries];
 }

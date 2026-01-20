@@ -15,8 +15,8 @@ class CreateEventRequest extends Equatable {
   final DateTime startTime;
   final DateTime? endTime;
   final String mapsUrl;
-  final double? latitude;
-  final double? longitude;
+  final String? latitude;
+  final String? longitude;
   final String place;
   final String address;
 
@@ -42,8 +42,8 @@ class UpdateEventRequest extends Equatable {
   final DateTime? startTime;
   final DateTime? endTime;
   final String? mapsUrl;
-  final double? latitude;
-  final double? longitude;
+  final String? latitude;
+  final String? longitude;
   final String? place;
   final String? address;
 
