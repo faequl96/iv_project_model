@@ -11,6 +11,7 @@ class TransactionResponse extends Equatable {
     required this.transactionCode,
     required this.productType,
     required this.productName,
+    required this.productId,
     required this.productDescription,
     required this.status,
     required this.paymentMethod,
@@ -37,6 +38,7 @@ class TransactionResponse extends Equatable {
   final String transactionCode;
   final ProductType productType;
   final String productName;
+  final String productId;
   final String productDescription;
   final TransactionStatusType status;
   final PaymentMethodType paymentMethod;
@@ -64,6 +66,7 @@ class TransactionResponse extends Equatable {
       transactionCode: json['transaction_code'],
       productType: ProductTypeExtension.fromJson(json['product_type']),
       productName: json['product_name'],
+      productId: json['product_id'],
       productDescription: json['product_description'],
       status: TransactionStatusTypeExtension.fromJson(json['status']),
       paymentMethod: PaymentMethodTypeExtension.fromJson(json['payment_method']),
@@ -93,6 +96,7 @@ class TransactionResponse extends Equatable {
       'transaction_code': transactionCode,
       'product_type': productType.toJson(),
       'product_name': productName,
+      'product_id': productId,
       'product_description': productDescription,
       'status': status.toJson(),
       'payment_method': paymentMethod.toJson(),
@@ -122,6 +126,7 @@ class TransactionResponse extends Equatable {
     transactionCode,
     productType,
     productName,
+    productId,
     productDescription,
     status,
     paymentMethod,
