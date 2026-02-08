@@ -7,7 +7,7 @@ class CreateInvitationRequest extends Equatable {
   const CreateInvitationRequest({required this.invitationThemeId, required this.invitationData});
 
   final int invitationThemeId;
-  final CreateInvitationDataRequest invitationData;
+  final InvitationDataRequest invitationData;
 
   Map<String, dynamic> toJson() {
     return {'invitation_theme_id': invitationThemeId, 'invitation_data': invitationData.toJson()};
@@ -21,7 +21,7 @@ class UpdateInvitationRequest extends Equatable {
   const UpdateInvitationRequest({this.status, this.invitationData});
 
   final InvitationStatusType? status;
-  final UpdateInvitationDataRequest? invitationData;
+  final InvitationDataRequest? invitationData;
 
   Map<String, dynamic> toJson() {
     return {

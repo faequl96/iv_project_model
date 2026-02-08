@@ -1,9 +1,11 @@
 import 'package:equatable/equatable.dart';
 import 'package:iv_project_model/src/enums/lang_type.dart';
 
-class CreateGeneralRequest extends Equatable {
-  const CreateGeneralRequest({
+class GeneralRequest extends Equatable {
+  const GeneralRequest({
     required this.lang,
+    this.removeMusicAudioUrl = false,
+    this.removeCoverImageurl = false,
     required this.opening,
     required this.openingQuote,
     required this.quoteFrom,
@@ -13,6 +15,8 @@ class CreateGeneralRequest extends Equatable {
   });
 
   final LangType lang;
+  final bool removeMusicAudioUrl;
+  final bool removeCoverImageurl;
   final String opening;
   final String openingQuote;
   final String quoteFrom;
@@ -23,6 +27,8 @@ class CreateGeneralRequest extends Equatable {
   Map<String, dynamic> toJson() {
     return {
       'lang': lang.toJson(),
+      'remove_music_audio_url': removeMusicAudioUrl,
+      'remove_cover_image_url': removeCoverImageurl,
       'opening': opening,
       'opening_quote': openingQuote,
       'quote_from': quoteFrom,
@@ -33,40 +39,15 @@ class CreateGeneralRequest extends Equatable {
   }
 
   @override
-  List<Object?> get props => [lang, opening, openingQuote, quoteFrom, regards, greeting, closing];
-}
-
-class UpdateGeneralRequest extends Equatable {
-  const UpdateGeneralRequest({
-    this.lang,
-    this.opening,
-    this.openingQuote,
-    this.quoteFrom,
-    this.regards,
-    this.greeting,
-    this.closing,
-  });
-
-  final LangType? lang;
-  final String? opening;
-  final String? openingQuote;
-  final String? quoteFrom;
-  final String? regards;
-  final String? greeting;
-  final String? closing;
-
-  Map<String, dynamic> toJson() {
-    return {
-      if (lang != null) 'lang': lang!.toJson(),
-      if (opening != null) 'opening': opening,
-      if (openingQuote != null) 'opening_quote': openingQuote,
-      if (quoteFrom != null) 'quote_from': quoteFrom,
-      if (regards != null) 'regards': regards,
-      if (greeting != null) 'greeting': greeting,
-      if (closing != null) 'closing': closing,
-    };
-  }
-
-  @override
-  List<Object?> get props => [lang, opening, openingQuote, quoteFrom, regards, greeting, closing];
+  List<Object?> get props => [
+    lang,
+    removeMusicAudioUrl,
+    removeCoverImageurl,
+    opening,
+    openingQuote,
+    quoteFrom,
+    regards,
+    greeting,
+    closing,
+  ];
 }

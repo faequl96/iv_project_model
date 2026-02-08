@@ -43,6 +43,7 @@ export 'src/models/event/event_response.dart';
 export 'src/models/general/general_request.dart';
 export 'src/models/general/general_response.dart';
 
+export 'src/models/gallery/gallery_request.dart';
 export 'src/models/gallery/gallery_response.dart';
 
 export 'src/models/iv_coin_package/iv_coin_package_request.dart';
