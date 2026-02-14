@@ -42,6 +42,41 @@ class CreateInvitedGuestRequest extends Equatable {
   List<Object?> get props => [invitationId, phone, name, nameInstance, souvenir];
 }
 
+class EditInvitedGuestRequest extends Equatable {
+  const EditInvitedGuestRequest({
+    required this.id,
+    required this.invitationId,
+    required this.phone,
+    required this.name,
+    required this.nameInstance,
+    this.souvenir,
+    this.nominal,
+  });
+
+  final String id;
+  final String invitationId;
+  final String phone;
+  final String name;
+  final String nameInstance;
+  final String? souvenir;
+  final int? nominal;
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'invitation_id': invitationId,
+      'phone': phone,
+      'name': name,
+      'name_instance': nameInstance,
+      if (souvenir != null) 'souvenir': souvenir,
+      if (nominal != null) 'nominal': nominal,
+    };
+  }
+
+  @override
+  List<Object?> get props => [id, invitationId, phone, name, nameInstance, souvenir, nominal];
+}
+
 class UpdateInvitedGuestRequest extends Equatable {
   const UpdateInvitedGuestRequest({this.nickname, this.avatar, this.possiblePresence, this.attendance});
 
@@ -63,10 +98,23 @@ class UpdateInvitedGuestRequest extends Equatable {
   List<Object?> get props => [nickname, avatar, possiblePresence, attendance];
 }
 
-class BulkInvitedGuestRequest extends Equatable {
-  const BulkInvitedGuestRequest({required this.invitedGuests});
+class BulkCreateInvitedGuestRequest extends Equatable {
+  const BulkCreateInvitedGuestRequest({required this.invitedGuests});
 
   final List<CreateInvitedGuestRequest> invitedGuests;
+
+  Map<String, dynamic> toJson() {
+    return {'invited_guests': invitedGuests.map((e) => e.toJson()).toList()};
+  }
+
+  @override
+  List<Object?> get props => [invitedGuests];
+}
+
+class BulkEditInvitedGuestRequest extends Equatable {
+  const BulkEditInvitedGuestRequest({required this.invitedGuests});
+
+  final List<EditInvitedGuestRequest> invitedGuests;
 
   Map<String, dynamic> toJson() {
     return {'invited_guests': invitedGuests.map((e) => e.toJson()).toList()};

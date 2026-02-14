@@ -9,7 +9,7 @@ class InvitationDataResponse extends Equatable {
     required this.groom,
     required this.contractEvent,
     required this.receptionEvent,
-    this.gallery,
+    required this.gallery,
     this.bankAccounts = const [],
   });
 
@@ -19,7 +19,7 @@ class InvitationDataResponse extends Equatable {
   final BridegroomResponse groom;
   final EventResponse contractEvent;
   final EventResponse receptionEvent;
-  final GalleryResponse? gallery;
+  final GalleryResponse gallery;
   final List<BankAccountResponse> bankAccounts;
 
   factory InvitationDataResponse.fromJson(Map<String, dynamic> json) {
@@ -30,7 +30,7 @@ class InvitationDataResponse extends Equatable {
       groom: BridegroomResponse.fromJson(json['groom']),
       contractEvent: EventResponse.fromJson(json['contract_event']),
       receptionEvent: EventResponse.fromJson(json['reception_event']),
-      gallery: json['gallery'] != null ? GalleryResponse.fromJson(json['gallery']) : null,
+      gallery: GalleryResponse.fromJson(json['gallery']),
       bankAccounts: (json['bank_accounts'] as List).map((json) => BankAccountResponse.fromJson(json)).toList(),
     );
   }
@@ -43,7 +43,7 @@ class InvitationDataResponse extends Equatable {
       'groom': groom.toJson(),
       'contract_event': contractEvent.toJson(),
       'reception_event': receptionEvent.toJson(),
-      'gallery': gallery?.toJson(),
+      'gallery': gallery.toJson(),
       'bank_accounts': bankAccounts.map((e) => e.toJson()).toList(),
     };
   }

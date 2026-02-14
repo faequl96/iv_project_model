@@ -32,6 +32,7 @@ class TransactionResponse extends Equatable {
     required this.ivcVoucherCodeDiscount,
     required this.paymentProofImageUrl,
     required this.createdAt,
+    required this.updatedAt,
   });
 
   final String id;
@@ -59,6 +60,7 @@ class TransactionResponse extends Equatable {
   final int ivcVoucherCodeDiscount;
   final String paymentProofImageUrl;
   final DateTime createdAt;
+  final DateTime updatedAt;
 
   factory TransactionResponse.fromJson(Map<String, dynamic> json) {
     return TransactionResponse(
@@ -87,6 +89,7 @@ class TransactionResponse extends Equatable {
       ivcVoucherCodeDiscount: json['ivc_voucher_code_discount'],
       paymentProofImageUrl: json['payment_proof_image_url'],
       createdAt: DateTimeConverter.fromJson(json['created_at'])!,
+      updatedAt: DateTimeConverter.fromJson(json['updated_at'])!,
     );
   }
 
@@ -117,6 +120,7 @@ class TransactionResponse extends Equatable {
       'ivc_voucher_code_discount': ivcVoucherCodeDiscount,
       'payment_proof_image_url': paymentProofImageUrl,
       'created_at': DateTimeConverter.toJson(createdAt),
+      'updated_at': DateTimeConverter.toJson(updatedAt),
     };
   }
 
@@ -147,5 +151,6 @@ class TransactionResponse extends Equatable {
     ivcVoucherCodeDiscount,
     paymentProofImageUrl,
     createdAt,
+    updatedAt,
   ];
 }
