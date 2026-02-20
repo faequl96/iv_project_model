@@ -25,8 +25,8 @@ class EventResponse extends Equatable {
   factory EventResponse.fromJson(Map<String, dynamic> json) {
     return EventResponse(
       id: json['id'],
-      startTime: DateTimeConverter.fromJson(json['start_time']) ?? DateTime.now().toLocal(),
-      endTime: json['end_time'] != null ? DateTimeConverter.fromJson(json['end_time']) ?? DateTime.now().toLocal() : null,
+      startTime: DateTimeConverter.fromJson(json['start_time']) ?? .now().toLocal(),
+      endTime: json['end_time'] != null ? DateTimeConverter.fromJson(json['end_time']) ?? .now().toLocal() : null,
       mapsUrl: json['maps_url'],
       latitude: json['latitude'],
       longitude: json['longitude'],

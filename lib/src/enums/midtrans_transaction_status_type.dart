@@ -3,19 +3,19 @@ enum MidtransTransactionStatusType { unknown, settlement, capture, pending, expi
 extension MidtransTransactionStatusTypeExtension on MidtransTransactionStatusType {
   String toJson() {
     switch (this) {
-      case MidtransTransactionStatusType.unknown:
+      case .unknown:
         return 'unknown';
-      case MidtransTransactionStatusType.pending:
+      case .pending:
         return 'pending';
-      case MidtransTransactionStatusType.settlement:
+      case .settlement:
         return 'settlement';
-      case MidtransTransactionStatusType.capture:
+      case .capture:
         return 'capture';
-      case MidtransTransactionStatusType.expire:
+      case .expire:
         return 'expire';
-      case MidtransTransactionStatusType.cancel:
+      case .cancel:
         return 'cancel';
-      case MidtransTransactionStatusType.deny:
+      case .deny:
         return 'deny';
     }
   }
@@ -23,21 +23,21 @@ extension MidtransTransactionStatusTypeExtension on MidtransTransactionStatusTyp
   static MidtransTransactionStatusType fromJson(String json) {
     switch (json) {
       case 'unknown':
-        return MidtransTransactionStatusType.unknown;
+        return .unknown;
       case 'pending':
-        return MidtransTransactionStatusType.pending;
+        return .pending;
       case 'settlement':
-        return MidtransTransactionStatusType.settlement;
+        return .settlement;
       case 'capture':
-        return MidtransTransactionStatusType.capture;
+        return .capture;
       case 'expire':
-        return MidtransTransactionStatusType.expire;
+        return .expire;
       case 'cancel':
-        return MidtransTransactionStatusType.cancel;
+        return .cancel;
       case 'deny':
-        return MidtransTransactionStatusType.deny;
+        return .deny;
       default:
-        return MidtransTransactionStatusType.unknown;
+        return .unknown;
     }
   }
 }
