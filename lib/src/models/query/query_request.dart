@@ -19,7 +19,7 @@ class QueryRequest {
 enum SortType { asc, desc }
 
 class Sort {
-  Sort({required this.key, this.type = SortType.asc});
+  Sort({required this.key, this.type = .asc});
 
   final String key;
   final SortType type;
@@ -47,17 +47,17 @@ enum OperatorType { equals, like, greaterThan, lessThan, greaterThanOrEqual, les
 extension OperatorTypeExtension on OperatorType {
   String toJson() {
     switch (this) {
-      case OperatorType.equals:
+      case .equals:
         return 'equals';
-      case OperatorType.like:
+      case .like:
         return 'like';
-      case OperatorType.greaterThan:
+      case .greaterThan:
         return 'greater_than';
-      case OperatorType.lessThan:
+      case .lessThan:
         return 'less_than';
-      case OperatorType.greaterThanOrEqual:
+      case .greaterThanOrEqual:
         return 'greater_than_or_equal';
-      case OperatorType.lessThanOrEqual:
+      case .lessThanOrEqual:
         return 'less_than_or_equal';
     }
   }

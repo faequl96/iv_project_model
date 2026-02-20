@@ -3,18 +3,18 @@ enum LangType { id, en }
 extension LangTypeExtension on LangType {
   String toJson() {
     switch (this) {
-      case LangType.id:
+      case .id:
         return 'id';
-      case LangType.en:
+      case .en:
         return 'en';
     }
   }
 
   String toCompleteName() {
     switch (this) {
-      case LangType.id:
+      case .id:
         return 'Bahasa Indonesia';
-      case LangType.en:
+      case .en:
         return 'English';
     }
   }
@@ -22,11 +22,11 @@ extension LangTypeExtension on LangType {
   static LangType fromJson(String json) {
     switch (json) {
       case 'id':
-        return LangType.id;
+        return .id;
       case 'en':
-        return LangType.en;
+        return .en;
       default:
-        return LangType.id;
+        return .id;
     }
   }
 }
