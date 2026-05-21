@@ -1,7 +1,11 @@
 import 'package:equatable/equatable.dart';
 
 class RSVPRequest extends Equatable {
-  const RSVPRequest({required this.invitationId, required this.invitedGuestId, required this.message});
+  const RSVPRequest({
+    required this.invitationId,
+    required this.invitedGuestId,
+    required this.message,
+  });
 
   final String invitationId;
   final String invitedGuestId;

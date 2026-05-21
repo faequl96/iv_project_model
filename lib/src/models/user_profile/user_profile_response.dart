@@ -52,5 +52,15 @@ class UserProfileResponse extends Equatable {
   }
 
   @override
-  List<Object?> get props => [id, firstName, lastName, email, phone, brandName, logoUrl, instagram, address];
+  List<Object?> get props => [
+    id,
+    firstName,
+    lastName,
+    email,
+    phone,
+    brandName,
+    logoUrl,
+    instagram,
+    address,
+  ];
 }

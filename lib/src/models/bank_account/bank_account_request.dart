@@ -1,7 +1,11 @@
 import 'package:equatable/equatable.dart';
 
 class BankAccountRequest extends Equatable {
-  const BankAccountRequest({required this.bankName, required this.accountName, required this.number});
+  const BankAccountRequest({
+    required this.bankName,
+    required this.accountName,
+    required this.number,
+  });
 
   final String bankName;
   final String accountName;

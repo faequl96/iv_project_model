@@ -45,22 +45,14 @@ class FilterGroup {
 enum OperatorType { equals, like, greaterThan, lessThan, greaterThanOrEqual, lessThanOrEqual }
 
 extension OperatorTypeExtension on OperatorType {
-  String toJson() {
-    switch (this) {
-      case .equals:
-        return 'equals';
-      case .like:
-        return 'like';
-      case .greaterThan:
-        return 'greater_than';
-      case .lessThan:
-        return 'less_than';
-      case .greaterThanOrEqual:
-        return 'greater_than_or_equal';
-      case .lessThanOrEqual:
-        return 'less_than_or_equal';
-    }
-  }
+  String toJson() => switch (this) {
+    .equals => 'equals',
+    .like => 'like',
+    .greaterThan => 'greater_than',
+    .lessThan => 'less_than',
+    .greaterThanOrEqual => 'greater_than_or_equal',
+    .lessThanOrEqual => 'less_than_or_equal',
+  };
 }
 
 class Filter {

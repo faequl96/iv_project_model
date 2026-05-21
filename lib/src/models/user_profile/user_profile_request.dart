@@ -3,7 +3,14 @@ import 'dart:io';
 import 'package:equatable/equatable.dart';
 
 class UserProfileRequest extends Equatable {
-  const UserProfileRequest({this.firstName, this.lastName, this.phone, this.brandName, this.instagram, this.address});
+  const UserProfileRequest({
+    this.firstName,
+    this.lastName,
+    this.phone,
+    this.brandName,
+    this.instagram,
+    this.address,
+  });
 
   final String? firstName;
   final String? lastName;
@@ -32,7 +39,9 @@ class LogoImageRequest extends Equatable {
 
   final File? logoImage;
 
-  Future<Map<String, dynamic>> toFormDataMap(Future<Map<String, dynamic>> Function(File? logoImage) getValue) {
+  Future<Map<String, dynamic>> toFormDataMap(
+    Future<Map<String, dynamic>> Function(File? logoImage) getValue,
+  ) {
     return getValue(logoImage);
   }
 

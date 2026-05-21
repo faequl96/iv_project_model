@@ -1,23 +1,14 @@
 enum InvitationStatusType { draft, active }
 
 extension InvitationStatusTypeExtension on InvitationStatusType {
-  String toJson() {
-    switch (this) {
-      case .draft:
-        return 'draft';
-      case .active:
-        return 'active';
-    }
-  }
+  String toJson() => switch (this) {
+    .draft => 'draft',
+    .active => 'active',
+  };
 
-  static InvitationStatusType fromJson(String json) {
-    switch (json) {
-      case 'draft':
-        return .draft;
-      case 'active':
-        return .active;
-      default:
-        return .draft;
-    }
-  }
+  static InvitationStatusType fromJson(String json) => switch (json) {
+    'draft' => .draft,
+    'active' => .active,
+    String() => .draft,
+  };
 }

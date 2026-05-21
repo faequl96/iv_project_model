@@ -2,7 +2,11 @@ import 'package:equatable/equatable.dart';
 import 'package:iv_project_model/src/enums/product_type.dart';
 
 class CreateTransactionRequest extends Equatable {
-  const CreateTransactionRequest({required this.productType, required this.productId, required this.userId});
+  const CreateTransactionRequest({
+    required this.productType,
+    required this.productId,
+    required this.userId,
+  });
 
   final ProductType productType;
   final String productId;

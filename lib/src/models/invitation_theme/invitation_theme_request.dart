@@ -30,7 +30,13 @@ class CreateInvitationThemeRequest extends Equatable {
 }
 
 class UpdateInvitationThemeRequest extends Equatable {
-  const UpdateInvitationThemeRequest({this.name, this.idrPrice, this.ivcPrice, this.categoryIds, this.discountCategoryIds});
+  const UpdateInvitationThemeRequest({
+    this.name,
+    this.idrPrice,
+    this.ivcPrice,
+    this.categoryIds,
+    this.discountCategoryIds,
+  });
 
   final String? name;
   final int? idrPrice;

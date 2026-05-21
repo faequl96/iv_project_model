@@ -2,7 +2,12 @@ import 'package:equatable/equatable.dart';
 import 'package:iv_project_model/iv_project_model.dart';
 
 class RSVPResponse extends Equatable {
-  const RSVPResponse({required this.id, required this.invitedGuest, required this.message, required this.createdAt});
+  const RSVPResponse({
+    required this.id,
+    required this.invitedGuest,
+    required this.message,
+    required this.createdAt,
+  });
 
   final int id;
   final InvitedGuestResponse invitedGuest;

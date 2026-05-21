@@ -25,7 +25,9 @@ class IVCoinPackageResponse extends Equatable {
       coinAmount: json['coin_amount'],
       idrPrice: json['idr_price'],
       idrDiscountPrice: json['idr_discount_price'] as int,
-      discountCategories: (json['discount_categories'] as List).map((e) => DiscountCategoryResponse.fromJson(e)).toList(),
+      discountCategories: (json['discount_categories'] as List)
+          .map((e) => DiscountCategoryResponse.fromJson(e))
+          .toList(),
     );
   }
 

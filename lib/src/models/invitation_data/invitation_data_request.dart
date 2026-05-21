@@ -37,5 +37,13 @@ class InvitationDataRequest extends Equatable {
   }
 
   @override
-  List<Object?> get props => [general, bride, groom, contractEvent, receptionEvent, gallery, bankAccounts];
+  List<Object?> get props => [
+    general,
+    bride,
+    groom,
+    contractEvent,
+    receptionEvent,
+    gallery,
+    bankAccounts,
+  ];
 }

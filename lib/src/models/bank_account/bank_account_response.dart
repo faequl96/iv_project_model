@@ -1,7 +1,12 @@
 import 'package:equatable/equatable.dart';
 
 class BankAccountResponse extends Equatable {
-  const BankAccountResponse({required this.id, required this.bankName, required this.accountName, required this.number});
+  const BankAccountResponse({
+    required this.id,
+    required this.bankName,
+    required this.accountName,
+    required this.number,
+  });
 
   final int id;
   final String bankName;

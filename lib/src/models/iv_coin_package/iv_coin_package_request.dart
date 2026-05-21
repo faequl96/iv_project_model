@@ -14,7 +14,12 @@ class CreateIVCoinPackageRequest extends Equatable {
   final List<int> discountCategoryIds;
 
   Map<String, dynamic> toJson() {
-    return {'name': name, 'coin_amount': coinAmount, 'idr_price': idrPrice, 'discount_category_ids': discountCategoryIds};
+    return {
+      'name': name,
+      'coin_amount': coinAmount,
+      'idr_price': idrPrice,
+      'discount_category_ids': discountCategoryIds,
+    };
   }
 
   @override
@@ -22,7 +27,12 @@ class CreateIVCoinPackageRequest extends Equatable {
 }
 
 class UpdateIVCoinPackageRequest extends Equatable {
-  const UpdateIVCoinPackageRequest({this.name, this.coinAmount, this.idrPrice, this.discountCategoryIds});
+  const UpdateIVCoinPackageRequest({
+    this.name,
+    this.coinAmount,
+    this.idrPrice,
+    this.discountCategoryIds,
+  });
 
   final String? name;
   final int? coinAmount;

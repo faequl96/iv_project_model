@@ -1,7 +1,11 @@
 import 'package:equatable/equatable.dart';
 
 class CreateReviewRequest extends Equatable {
-  const CreateReviewRequest({required this.star, required this.comment, required this.invitationThemeId});
+  const CreateReviewRequest({
+    required this.star,
+    required this.comment,
+    required this.invitationThemeId,
+  });
 
   final int star;
   final String comment;

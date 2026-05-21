@@ -31,7 +31,9 @@ class InvitationDataResponse extends Equatable {
       contractEvent: EventResponse.fromJson(json['contract_event']),
       receptionEvent: EventResponse.fromJson(json['reception_event']),
       gallery: GalleryResponse.fromJson(json['gallery']),
-      bankAccounts: (json['bank_accounts'] as List).map((json) => BankAccountResponse.fromJson(json)).toList(),
+      bankAccounts: (json['bank_accounts'] as List)
+          .map((json) => BankAccountResponse.fromJson(json))
+          .toList(),
     );
   }
 
@@ -49,5 +51,14 @@ class InvitationDataResponse extends Equatable {
   }
 
   @override
-  List<Object?> get props => [id, general, bride, groom, contractEvent, receptionEvent, gallery, bankAccounts];
+  List<Object?> get props => [
+    id,
+    general,
+    bride,
+    groom,
+    contractEvent,
+    receptionEvent,
+    gallery,
+    bankAccounts,
+  ];
 }

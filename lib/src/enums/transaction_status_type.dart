@@ -1,31 +1,18 @@
 enum TransactionStatusType { created, pending, confirmed, canceled }
 
 extension TransactionStatusTypeExtension on TransactionStatusType {
-  String toJson() {
-    switch (this) {
-      case .created:
-        return 'created';
-      case .pending:
-        return 'pending';
-      case .confirmed:
-        return 'confirmed';
-      case .canceled:
-        return 'canceled';
-    }
-  }
+  String toJson() => switch (this) {
+    .created => 'created',
+    .pending => 'pending',
+    .confirmed => 'confirmed',
+    .canceled => 'canceled',
+  };
 
-  static TransactionStatusType fromJson(String json) {
-    switch (json) {
-      case 'created':
-        return .created;
-      case 'pending':
-        return .pending;
-      case 'confirmed':
-        return .confirmed;
-      case 'canceled':
-        return .canceled;
-      default:
-        return .created;
-    }
-  }
+  static TransactionStatusType fromJson(String json) => switch (json) {
+    'created' => .created,
+    'pending' => .pending,
+    'confirmed' => .confirmed,
+    'canceled' => .canceled,
+    String() => .created,
+  };
 }

@@ -29,7 +29,13 @@ class UserResponse extends Equatable {
   }
 
   Map<String, dynamic> toJson() {
-    return {'id': id, 'unix_id': unixId, 'role': role.toJson(), 'user_profile': userProfile.toJson(), 'iv_coin': ivCoin.toJson()};
+    return {
+      'id': id,
+      'unix_id': unixId,
+      'role': role.toJson(),
+      'user_profile': userProfile.toJson(),
+      'iv_coin': ivCoin.toJson(),
+    };
   }
 
   @override

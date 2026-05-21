@@ -39,7 +39,9 @@ class InvitationThemeResponse extends Equatable {
       soldCount: json['sold_count'] as int,
       userIds: (json['user_ids'] as List).map((e) => e as String).toList(),
       categories: (json['categories'] as List).map((e) => CategoryResponse.fromJson(e)).toList(),
-      discountCategories: (json['discount_categories'] as List).map((e) => DiscountCategoryResponse.fromJson(e)).toList(),
+      discountCategories: (json['discount_categories'] as List)
+          .map((e) => DiscountCategoryResponse.fromJson(e))
+          .toList(),
       reviews: (json['reviews'] as List).map((e) => ReviewResponse.fromJson(e)).toList(),
     );
   }

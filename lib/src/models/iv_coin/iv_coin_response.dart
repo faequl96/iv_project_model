@@ -8,7 +8,11 @@ class IVCoinResponse extends Equatable {
   final int adMobMarker;
 
   factory IVCoinResponse.fromJson(Map<String, dynamic> json) {
-    return IVCoinResponse(id: json['id'] as int, balance: json['balance'] as int, adMobMarker: json['ad_mob_marker'] as int);
+    return IVCoinResponse(
+      id: json['id'] as int,
+      balance: json['balance'] as int,
+      adMobMarker: json['ad_mob_marker'] as int,
+    );
   }
 
   Map<String, dynamic> toJson() {

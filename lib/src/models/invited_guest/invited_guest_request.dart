@@ -78,7 +78,12 @@ class EditInvitedGuestRequest extends Equatable {
 }
 
 class UpdateInvitedGuestRequest extends Equatable {
-  const UpdateInvitedGuestRequest({this.nickname, this.avatar, this.possiblePresence, this.attendance});
+  const UpdateInvitedGuestRequest({
+    this.nickname,
+    this.avatar,
+    this.possiblePresence,
+    this.attendance,
+  });
 
   final String? nickname;
   final String? avatar;

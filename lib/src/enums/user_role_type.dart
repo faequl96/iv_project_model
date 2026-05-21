@@ -1,27 +1,16 @@
 enum UserRoleType { superAdmin, admin, user }
 
 extension UserRoleTypeExtension on UserRoleType {
-  String toJson() {
-    switch (this) {
-      case .superAdmin:
-        return 'super_admin';
-      case .admin:
-        return 'admin';
-      case .user:
-        return 'user';
-    }
-  }
+  String toJson() => switch (this) {
+    .superAdmin => 'super_admin',
+    .admin => 'admin',
+    .user => 'user',
+  };
 
-  static UserRoleType fromJson(String json) {
-    switch (json) {
-      case 'super_admin':
-        return .superAdmin;
-      case 'admin':
-        return .admin;
-      case 'user':
-        return .user;
-      default:
-        return .user;
-    }
-  }
+  static UserRoleType fromJson(String json) => switch (json) {
+    'super_admin' => .superAdmin,
+    'admin' => .admin,
+    'user' => .user,
+    String() => .user,
+  };
 }

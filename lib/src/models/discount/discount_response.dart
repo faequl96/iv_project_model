@@ -10,8 +10,12 @@ class DiscountResponse extends Equatable {
 
   factory DiscountResponse.fromJson(Map<String, dynamic> json) {
     return DiscountResponse(
-      invitationThemes: (json['invitation_themes'] as List).map((e) => InvitationThemeResponse.fromJson(e)).toList(),
-      ivCoinPackages: (json['iv_coin_packages'] as List).map((e) => IVCoinPackageResponse.fromJson(e)).toList(),
+      invitationThemes: (json['invitation_themes'] as List)
+          .map((e) => InvitationThemeResponse.fromJson(e))
+          .toList(),
+      ivCoinPackages: (json['iv_coin_packages'] as List)
+          .map((e) => IVCoinPackageResponse.fromJson(e))
+          .toList(),
     );
   }
 
