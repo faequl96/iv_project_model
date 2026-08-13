@@ -1,30 +1,17 @@
 import 'package:equatable/equatable.dart';
 
-class BridegroomRequest extends Equatable {
-  const BridegroomRequest({
-    required this.nickname,
-    required this.fullName,
-    this.frontTitle,
-    this.backTitle,
-    required this.fatherName,
-    this.fatherFrontTitle,
-    this.fatherBackTitle,
-    required this.motherName,
-    this.motherFrontTitle,
-    this.motherBackTitle,
-  });
-
-  final String nickname;
-  final String fullName;
-  final String? frontTitle;
-  final String? backTitle;
-  final String fatherName;
-  final String? fatherFrontTitle;
-  final String? fatherBackTitle;
-  final String motherName;
-  final String? motherFrontTitle;
-  final String? motherBackTitle;
-
+class const BridegroomRequest({
+  required final String nickname,
+  required final String fullName,
+  final String? frontTitle,
+  final String? backTitle,
+  required final String fatherName,
+  final String? fatherFrontTitle,
+  final String? fatherBackTitle,
+  required final String motherName,
+  final String? motherFrontTitle,
+  final String? motherBackTitle,
+}) extends Equatable {
   Map<String, dynamic> toJson() {
     return {
       'nickname': nickname,

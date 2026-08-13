@@ -1,18 +1,11 @@
 import 'package:equatable/equatable.dart';
 
-class CreateIVCoinPackageRequest extends Equatable {
-  const CreateIVCoinPackageRequest({
-    required this.name,
-    required this.coinAmount,
-    required this.idrPrice,
-    required this.discountCategoryIds,
-  });
-
-  final String name;
-  final int coinAmount;
-  final int idrPrice;
-  final List<int> discountCategoryIds;
-
+class const CreateIVCoinPackageRequest({
+  required final String name,
+  required final int coinAmount,
+  required final int idrPrice,
+  required final List<int> discountCategoryIds,
+}) extends Equatable {
   Map<String, dynamic> toJson() {
     return {
       'name': name,
@@ -26,19 +19,12 @@ class CreateIVCoinPackageRequest extends Equatable {
   List<Object?> get props => [name, coinAmount, idrPrice, discountCategoryIds];
 }
 
-class UpdateIVCoinPackageRequest extends Equatable {
-  const UpdateIVCoinPackageRequest({
-    this.name,
-    this.coinAmount,
-    this.idrPrice,
-    this.discountCategoryIds,
-  });
-
-  final String? name;
-  final int? coinAmount;
-  final int? idrPrice;
-  final List<int>? discountCategoryIds;
-
+class const UpdateIVCoinPackageRequest({
+  final String? name,
+  final int? coinAmount,
+  final int? idrPrice,
+  final List<int>? discountCategoryIds,
+}) extends Equatable {
   Map<String, dynamic> toJson() {
     return {
       if (name != null) 'name': name,

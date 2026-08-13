@@ -1,4 +1,9 @@
-enum TransactionStatusType { created, pending, confirmed, canceled }
+enum TransactionStatusType() {
+  created,
+  pending,
+  confirmed,
+  canceled
+}
 
 extension TransactionStatusTypeExtension on TransactionStatusType {
   String toJson() => switch (this) {

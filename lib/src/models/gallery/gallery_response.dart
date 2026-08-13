@@ -1,38 +1,22 @@
 import 'package:equatable/equatable.dart';
 
-class GalleryResponse extends Equatable {
-  const GalleryResponse({
-    required this.id,
-    this.imageURL1,
-    this.imageURL2,
-    this.imageURL3,
-    this.imageURL4,
-    this.imageURL5,
-    this.imageURL6,
-    this.imageURL7,
-    this.imageURL8,
-    this.imageURL9,
-    this.imageURL10,
-    this.imageURL11,
-    this.imageURL12,
-  });
-
-  final int id;
-  final String? imageURL1;
-  final String? imageURL2;
-  final String? imageURL3;
-  final String? imageURL4;
-  final String? imageURL5;
-  final String? imageURL6;
-  final String? imageURL7;
-  final String? imageURL8;
-  final String? imageURL9;
-  final String? imageURL10;
-  final String? imageURL11;
-  final String? imageURL12;
-
-  factory GalleryResponse.fromJson(Map<String, dynamic> json) {
-    return GalleryResponse(
+class const GalleryResponse({
+  required final int id,
+  final String? imageURL1,
+  final String? imageURL2,
+  final String? imageURL3,
+  final String? imageURL4,
+  final String? imageURL5,
+  final String? imageURL6,
+  final String? imageURL7,
+  final String? imageURL8,
+  final String? imageURL9,
+  final String? imageURL10,
+  final String? imageURL11,
+  final String? imageURL12,
+}) extends Equatable {
+  factory fromJson(Map<String, dynamic> json) {
+    return .new(
       id: json['id'],
       imageURL1: json['image_url_1'],
       imageURL2: json['image_url_2'],

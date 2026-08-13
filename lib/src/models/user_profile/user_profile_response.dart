@@ -1,30 +1,18 @@
 import 'package:equatable/equatable.dart';
 
-class UserProfileResponse extends Equatable {
-  const UserProfileResponse({
-    required this.id,
-    required this.firstName,
-    required this.lastName,
-    required this.email,
-    this.phone,
-    this.brandName,
-    this.logoUrl,
-    this.instagram,
-    this.address,
-  });
-
-  final int id;
-  final String firstName;
-  final String lastName;
-  final String email;
-  final String? phone;
-  final String? brandName;
-  final String? logoUrl;
-  final String? instagram;
-  final String? address;
-
-  factory UserProfileResponse.fromJson(Map<String, dynamic> json) {
-    return UserProfileResponse(
+class const UserProfileResponse({
+  required final int id,
+  required final String firstName,
+  required final String lastName,
+  required final String email,
+  final String? phone,
+  final String? brandName,
+  final String? logoUrl,
+  final String? instagram,
+  final String? address,
+}) extends Equatable {
+  factory fromJson(Map<String, dynamic> json) {
+    return .new(
       id: json['id'],
       firstName: json['first_name'],
       lastName: json['last_name'],

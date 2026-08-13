@@ -1,11 +1,9 @@
-class QueryRequest {
-  QueryRequest({this.page, this.limit, this.sort, this.filterGroups});
-
-  final int? page;
-  final int? limit;
-  final Sort? sort;
-  final List<FilterGroup>? filterGroups;
-
+class QueryRequest({
+  final int? page,
+  final int? limit,
+  final Sort? sort,
+  final List<FilterGroup>? filterGroups,
+}) {
   Map<String, dynamic> toJson() {
     return {
       'page': page,
@@ -16,33 +14,36 @@ class QueryRequest {
   }
 }
 
-enum SortType { asc, desc }
+enum SortType() {
+  asc,
+  desc
+}
 
-class Sort {
-  Sort({required this.key, this.type = .asc});
-
-  final String key;
-  final SortType type;
-
+class Sort({required final String key, final SortType type = .asc}) {
   Map<String, dynamic> toJson() {
     return {'key': key, 'type': type.name};
   }
 }
 
-enum JoinType { and, or }
+enum JoinType() {
+  and,
+  or
+}
 
-class FilterGroup {
-  FilterGroup({required this.joinType, required this.filters});
-
-  final JoinType joinType;
-  final List<Filter> filters;
-
+class FilterGroup({required final JoinType joinType, required final List<Filter> filters}) {
   Map<String, dynamic> toJson() {
     return {'join_type': joinType.name, 'filters': filters.map((item) => item.toJson()).toList()};
   }
 }
 
-enum OperatorType { equals, like, greaterThan, lessThan, greaterThanOrEqual, lessThanOrEqual }
+enum OperatorType() {
+  equals,
+  like,
+  greaterThan,
+  lessThan,
+  greaterThanOrEqual,
+  lessThanOrEqual
+}
 
 extension OperatorTypeExtension on OperatorType {
   String toJson() => switch (this) {
@@ -55,12 +56,10 @@ extension OperatorTypeExtension on OperatorType {
   };
 }
 
-class Filter {
-  const Filter({required this.field, required this.operator, required this.value});
-
-  final String field;
-  final OperatorType operator;
-  final String value;
-
+class const Filter({
+  required final String field,
+  required final OperatorType operator,
+  required final String value,
+}) {
   Map<String, dynamic> toJson() => {'field': field, 'operator': operator.toJson(), 'value': value};
 }

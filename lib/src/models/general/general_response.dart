@@ -1,33 +1,20 @@
 import 'package:equatable/equatable.dart';
 import 'package:iv_project_model/src/enums/lang_type.dart';
 
-class GeneralResponse extends Equatable {
-  const GeneralResponse({
-    required this.id,
-    required this.lang,
-    this.musicAudioUrl,
-    this.coverImageUrl,
-    required this.opening,
-    required this.openingQuote,
-    required this.quoteFrom,
-    required this.regards,
-    required this.greeting,
-    required this.closing,
-  });
-
-  final int id;
-  final LangType lang;
-  final String? musicAudioUrl;
-  final String? coverImageUrl;
-  final String opening;
-  final String openingQuote;
-  final String quoteFrom;
-  final String regards;
-  final String greeting;
-  final String closing;
-
-  factory GeneralResponse.fromJson(Map<String, dynamic> json) {
-    return GeneralResponse(
+class const GeneralResponse({
+  required final int id,
+  required final LangType lang,
+  final String? musicAudioUrl,
+  final String? coverImageUrl,
+  required final String opening,
+  required final String openingQuote,
+  required final String quoteFrom,
+  required final String regards,
+  required final String greeting,
+  required final String closing,
+}) extends Equatable {
+  factory fromJson(Map<String, dynamic> json) {
+    return .new(
       id: json['id'],
       lang: LangTypeExtension.fromJson(json['lang']),
       musicAudioUrl: json['music_audio_url'],

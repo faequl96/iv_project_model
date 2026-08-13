@@ -1,37 +1,26 @@
 import 'package:equatable/equatable.dart';
 import 'package:iv_project_model/iv_project_model.dart';
 
-class InvitationResponse extends Equatable {
-  const InvitationResponse({
-    required this.id,
-    required this.status,
-    required this.transactionId,
-    required this.invitationThemeId,
-    required this.invitationThemeName,
-    required this.remainingEditCount,
-    required this.brandProfile,
-    required this.invitationData,
-  });
-
-  final String id;
-  final InvitationStatusType status;
-  final String transactionId;
-  final int invitationThemeId;
-  final String invitationThemeName;
-  final int remainingEditCount;
-  final BrandProfileResponse brandProfile;
-  final InvitationDataResponse invitationData;
-
-  factory InvitationResponse.fromJson(Map<String, dynamic> json) {
-    return InvitationResponse(
+class const InvitationResponse({
+  required final String id,
+  required final InvitationStatusType status,
+  required final String transactionId,
+  required final int invitationThemeId,
+  required final String invitationThemeName,
+  required final int remainingEditCount,
+  required final BrandProfileResponse brandProfile,
+  required final InvitationDataResponse invitationData,
+}) extends Equatable {
+  factory fromJson(Map<String, dynamic> json) {
+    return .new(
       id: json['id'],
       status: InvitationStatusTypeExtension.fromJson(json['status']),
       transactionId: json['transaction_id'],
       invitationThemeId: json['invitation_theme_id'],
       invitationThemeName: json['invitation_theme_name'],
       remainingEditCount: json['remaining_edit_count'],
-      brandProfile: BrandProfileResponse.fromJson(json['brand_profile']),
-      invitationData: InvitationDataResponse.fromJson(json['invitation_data']),
+      brandProfile: .fromJson(json['brand_profile']),
+      invitationData: .fromJson(json['invitation_data']),
     );
   }
 

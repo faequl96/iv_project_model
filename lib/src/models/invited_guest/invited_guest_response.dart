@@ -1,36 +1,21 @@
 import 'package:equatable/equatable.dart';
 
-class InvitedGuestResponse extends Equatable {
-  const InvitedGuestResponse({
-    required this.id,
-    this.uniqueId,
-    this.phone,
-    required this.name,
-    this.nickname,
-    required this.nameInstance,
-    required this.invited,
-    this.avatar,
-    this.possiblePresence = '',
-    this.attendance,
-    this.souvenir,
-    this.nominal,
-  });
-
-  final String id;
-  final String? uniqueId;
-  final String? phone;
-  final String name;
-  final String? nickname;
-  final String nameInstance;
-  final bool invited;
-  final String? avatar;
-  final String? possiblePresence;
-  final bool? attendance;
-  final String? souvenir;
-  final int? nominal;
-
-  factory InvitedGuestResponse.fromJson(Map<String, dynamic> json) {
-    return InvitedGuestResponse(
+class const InvitedGuestResponse({
+  required final String id,
+  final String? uniqueId,
+  final String? phone,
+  required final String name,
+  final String? nickname,
+  required final String nameInstance,
+  required final bool invited,
+  final String? avatar,
+  final String? possiblePresence = '',
+  final bool? attendance,
+  final String? souvenir,
+  final int? nominal,
+}) extends Equatable {
+  factory fromJson(Map<String, dynamic> json) {
+    return .new(
       id: json['id'],
       uniqueId: json['unique_id'],
       phone: json['phone'],

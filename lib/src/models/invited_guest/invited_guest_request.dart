@@ -1,10 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-class CheckInvitedGuestRequest extends Equatable {
-  const CheckInvitedGuestRequest({this.id});
-
-  final String? id;
-
+class const CheckInvitedGuestRequest({final String? id}) extends Equatable {
   Map<String, dynamic> toJson() {
     return {'id': id};
   }
@@ -13,21 +9,13 @@ class CheckInvitedGuestRequest extends Equatable {
   List<Object?> get props => [id];
 }
 
-class CreateInvitedGuestRequest extends Equatable {
-  const CreateInvitedGuestRequest({
-    required this.invitationId,
-    required this.phone,
-    required this.name,
-    required this.nameInstance,
-    this.souvenir,
-  });
-
-  final String invitationId;
-  final String phone;
-  final String name;
-  final String nameInstance;
-  final String? souvenir;
-
+class const CreateInvitedGuestRequest({
+  required final String invitationId,
+  required final String phone,
+  required final String name,
+  required final String nameInstance,
+  final String? souvenir,
+}) extends Equatable {
   Map<String, dynamic> toJson() {
     return {
       'invitation_id': invitationId,
@@ -42,25 +30,15 @@ class CreateInvitedGuestRequest extends Equatable {
   List<Object?> get props => [invitationId, phone, name, nameInstance, souvenir];
 }
 
-class EditInvitedGuestRequest extends Equatable {
-  const EditInvitedGuestRequest({
-    required this.id,
-    required this.invitationId,
-    required this.phone,
-    required this.name,
-    required this.nameInstance,
-    this.souvenir,
-    this.nominal,
-  });
-
-  final String id;
-  final String invitationId;
-  final String phone;
-  final String name;
-  final String nameInstance;
-  final String? souvenir;
-  final int? nominal;
-
+class const EditInvitedGuestRequest({
+  required final String id,
+  required final String invitationId,
+  required final String phone,
+  required final String name,
+  required final String nameInstance,
+  final String? souvenir,
+  final int? nominal,
+}) extends Equatable {
   Map<String, dynamic> toJson() {
     return {
       'id': id,
@@ -77,19 +55,12 @@ class EditInvitedGuestRequest extends Equatable {
   List<Object?> get props => [id, invitationId, phone, name, nameInstance, souvenir, nominal];
 }
 
-class UpdateInvitedGuestRequest extends Equatable {
-  const UpdateInvitedGuestRequest({
-    this.nickname,
-    this.avatar,
-    this.possiblePresence,
-    this.attendance,
-  });
-
-  final String? nickname;
-  final String? avatar;
-  final String? possiblePresence;
-  final bool? attendance;
-
+class const UpdateInvitedGuestRequest({
+  final String? nickname,
+  final String? avatar,
+  final String? possiblePresence,
+  final bool? attendance,
+}) extends Equatable {
   Map<String, dynamic> toJson() {
     return {
       if (nickname != null) 'nickname': nickname,
@@ -103,11 +74,9 @@ class UpdateInvitedGuestRequest extends Equatable {
   List<Object?> get props => [nickname, avatar, possiblePresence, attendance];
 }
 
-class BulkCreateInvitedGuestRequest extends Equatable {
-  const BulkCreateInvitedGuestRequest({required this.invitedGuests});
-
-  final List<CreateInvitedGuestRequest> invitedGuests;
-
+class const BulkCreateInvitedGuestRequest({
+  required final List<CreateInvitedGuestRequest> invitedGuests,
+}) extends Equatable {
   Map<String, dynamic> toJson() {
     return {'invited_guests': invitedGuests.map((e) => e.toJson()).toList()};
   }
@@ -116,11 +85,9 @@ class BulkCreateInvitedGuestRequest extends Equatable {
   List<Object?> get props => [invitedGuests];
 }
 
-class BulkEditInvitedGuestRequest extends Equatable {
-  const BulkEditInvitedGuestRequest({required this.invitedGuests});
-
-  final List<EditInvitedGuestRequest> invitedGuests;
-
+class const BulkEditInvitedGuestRequest({
+  required final List<EditInvitedGuestRequest> invitedGuests,
+}) extends Equatable {
   Map<String, dynamic> toJson() {
     return {'invited_guests': invitedGuests.map((e) => e.toJson()).toList()};
   }

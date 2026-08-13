@@ -5,65 +5,36 @@ import 'package:iv_project_model/src/enums/payment_method_type.dart';
 import 'package:iv_project_model/src/enums/product_type.dart';
 import 'package:iv_project_model/src/enums/transaction_status_type.dart';
 
-class TransactionResponse extends Equatable {
-  const TransactionResponse({
-    required this.id,
-    required this.transactionCode,
-    required this.productType,
-    required this.productName,
-    required this.productId,
-    required this.productDescription,
-    required this.status,
-    required this.paymentMethod,
-    required this.referenceNumber,
-    required this.paymentURL,
-    required this.acquirer,
-    required this.midtransStatus,
-    this.timeLimitAt,
-    required this.idrPrice,
-    required this.idrDiscount,
-    required this.idrTotalPrice,
-    required this.ivcPrice,
-    required this.ivcDiscount,
-    required this.ivcTotalPrice,
-    required this.voucherCodeId,
-    required this.voucherCodeName,
-    required this.idrVoucherCodeDiscount,
-    required this.ivcVoucherCodeDiscount,
-    required this.paymentProofImageUrl,
-    required this.createdAt,
-    required this.updatedAt,
-  });
-
-  final String id;
-  final String transactionCode;
-  final ProductType productType;
-  final String productName;
-  final String productId;
-  final String productDescription;
-  final TransactionStatusType status;
-  final PaymentMethodType paymentMethod;
-  final String referenceNumber;
-  final String paymentURL;
-  final String acquirer;
-  final MidtransTransactionStatusType midtransStatus;
-  final DateTime? timeLimitAt;
-  final int idrPrice;
-  final int idrDiscount;
-  final int idrTotalPrice;
-  final int ivcPrice;
-  final int ivcDiscount;
-  final int ivcTotalPrice;
-  final int voucherCodeId;
-  final String voucherCodeName;
-  final int idrVoucherCodeDiscount;
-  final int ivcVoucherCodeDiscount;
-  final String paymentProofImageUrl;
-  final DateTime createdAt;
-  final DateTime updatedAt;
-
-  factory TransactionResponse.fromJson(Map<String, dynamic> json) {
-    return TransactionResponse(
+class const TransactionResponse({
+  required final String id,
+  required final String transactionCode,
+  required final ProductType productType,
+  required final String productName,
+  required final String productId,
+  required final String productDescription,
+  required final TransactionStatusType status,
+  required final PaymentMethodType paymentMethod,
+  required final String referenceNumber,
+  required final String paymentURL,
+  required final String acquirer,
+  required final MidtransTransactionStatusType midtransStatus,
+  final DateTime? timeLimitAt,
+  required final int idrPrice,
+  required final int idrDiscount,
+  required final int idrTotalPrice,
+  required final int ivcPrice,
+  required final int ivcDiscount,
+  required final int ivcTotalPrice,
+  required final int voucherCodeId,
+  required final String voucherCodeName,
+  required final int idrVoucherCodeDiscount,
+  required final int ivcVoucherCodeDiscount,
+  required final String paymentProofImageUrl,
+  required final DateTime createdAt,
+  required final DateTime updatedAt,
+}) extends Equatable {
+  factory fromJson(Map<String, dynamic> json) {
+    return .new(
       id: json['id'],
       transactionCode: json['transaction_code'],
       productType: ProductTypeExtension.fromJson(json['product_type']),

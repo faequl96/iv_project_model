@@ -1,4 +1,7 @@
-enum InvitationStatusType { draft, active }
+enum InvitationStatusType() {
+  draft,
+  active
+}
 
 extension InvitationStatusTypeExtension on InvitationStatusType {
   String toJson() => switch (this) {

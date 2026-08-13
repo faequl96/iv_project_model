@@ -1,29 +1,18 @@
 import 'package:equatable/equatable.dart';
 import 'package:iv_project_model/src/converters/date_time_converter.dart';
 
-class EventResponse extends Equatable {
-  const EventResponse({
-    required this.id,
-    required this.startTime,
-    this.endTime,
-    required this.mapsUrl,
-    this.latitude,
-    this.longitude,
-    required this.place,
-    required this.address,
-  });
-
-  final int id;
-  final DateTime startTime;
-  final DateTime? endTime;
-  final String mapsUrl;
-  final String? latitude;
-  final String? longitude;
-  final String place;
-  final String address;
-
-  factory EventResponse.fromJson(Map<String, dynamic> json) {
-    return EventResponse(
+class const EventResponse({
+  required final int id,
+  required final DateTime startTime,
+  final DateTime? endTime,
+  required final String mapsUrl,
+  final String? latitude,
+  final String? longitude,
+  required final String place,
+  required final String address,
+}) extends Equatable {
+  factory fromJson(Map<String, dynamic> json) {
+    return .new(
       id: json['id'],
       startTime: DateTimeConverter.fromJson(json['start_time']) ?? .now().toLocal(),
       endTime: json['end_time'] != null

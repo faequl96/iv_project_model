@@ -5,25 +5,15 @@ import 'package:iv_project_model/src/models/event/event_request.dart';
 import 'package:iv_project_model/src/models/gallery/gallery_request.dart';
 import 'package:iv_project_model/src/models/general/general_request.dart';
 
-class InvitationDataRequest extends Equatable {
-  const InvitationDataRequest({
-    required this.general,
-    required this.bride,
-    required this.groom,
-    required this.contractEvent,
-    required this.receptionEvent,
-    required this.gallery,
-    this.bankAccounts = const [],
-  });
-
-  final GeneralRequest general;
-  final BridegroomRequest bride;
-  final BridegroomRequest groom;
-  final EventRequest contractEvent;
-  final EventRequest receptionEvent;
-  final GalleryRequest gallery;
-  final List<BankAccountRequest> bankAccounts;
-
+class const InvitationDataRequest({
+  required final GeneralRequest general,
+  required final BridegroomRequest bride,
+  required final BridegroomRequest groom,
+  required final EventRequest contractEvent,
+  required final EventRequest receptionEvent,
+  required final GalleryRequest gallery,
+  final List<BankAccountRequest> bankAccounts = const [],
+}) extends Equatable {
   Map<String, dynamic> toJson() {
     return {
       'general': general.toJson(),

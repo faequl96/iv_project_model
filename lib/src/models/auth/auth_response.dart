@@ -1,14 +1,10 @@
 import 'package:equatable/equatable.dart';
 import 'package:iv_project_model/src/models/user/user_response.dart';
 
-class AuthResponse extends Equatable {
-  const AuthResponse({required this.token, required this.user});
-
-  final String token;
-  final UserResponse user;
-
-  factory AuthResponse.fromJson(Map<String, dynamic> json) {
-    return AuthResponse(token: json['token'], user: UserResponse.fromJson(json['user']));
+class const AuthResponse({required final String token, required final UserResponse user})
+    extends Equatable {
+  factory fromJson(Map<String, dynamic> json) {
+    return .new(token: json['token'], user: .fromJson(json['user']));
   }
 
   Map<String, dynamic> toJson() {

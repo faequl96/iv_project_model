@@ -1,25 +1,16 @@
 import 'package:equatable/equatable.dart';
 import 'package:iv_project_model/src/models/discount_category/discount_category_response.dart';
 
-class IVCoinPackageResponse extends Equatable {
-  const IVCoinPackageResponse({
-    required this.id,
-    required this.name,
-    required this.coinAmount,
-    required this.idrPrice,
-    required this.idrDiscountPrice,
-    required this.discountCategories,
-  });
-
-  final String id;
-  final String name;
-  final int coinAmount;
-  final int idrPrice;
-  final int idrDiscountPrice;
-  final List<DiscountCategoryResponse> discountCategories;
-
-  factory IVCoinPackageResponse.fromJson(Map<String, dynamic> json) {
-    return IVCoinPackageResponse(
+class const IVCoinPackageResponse({
+  required final String id,
+  required final String name,
+  required final int coinAmount,
+  required final int idrPrice,
+  required final int idrDiscountPrice,
+  required final List<DiscountCategoryResponse> discountCategories,
+}) extends Equatable {
+  factory fromJson(Map<String, dynamic> json) {
+    return .new(
       id: json['id'],
       name: json['name'],
       coinAmount: json['coin_amount'],

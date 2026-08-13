@@ -1,20 +1,13 @@
 import 'package:equatable/equatable.dart';
 
-class BankAccountResponse extends Equatable {
-  const BankAccountResponse({
-    required this.id,
-    required this.bankName,
-    required this.accountName,
-    required this.number,
-  });
-
-  final int id;
-  final String bankName;
-  final String accountName;
-  final String number;
-
-  factory BankAccountResponse.fromJson(Map<String, dynamic> json) {
-    return BankAccountResponse(
+class const BankAccountResponse({
+  required final int id,
+  required final String bankName,
+  required final String accountName,
+  required final String number,
+}) extends Equatable {
+  factory fromJson(Map<String, dynamic> json) {
+    return .new(
       id: json['id'],
       bankName: json['bank_name'],
       accountName: json['account_name'],

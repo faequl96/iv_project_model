@@ -1,24 +1,15 @@
 import 'package:equatable/equatable.dart';
 
-class BrandProfileResponse extends Equatable {
-  const BrandProfileResponse({
-    required this.name,
-    this.logoUrl,
-    required this.email,
-    this.phone,
-    this.instagram,
-    this.address,
-  });
-
-  final String name;
-  final String? logoUrl;
-  final String email;
-  final String? phone;
-  final String? instagram;
-  final String? address;
-
-  factory BrandProfileResponse.fromJson(Map<String, dynamic> json) {
-    return BrandProfileResponse(
+class const BrandProfileResponse({
+  required final String name,
+  final String? logoUrl,
+  required final String email,
+  final String? phone,
+  final String? instagram,
+  final String? address,
+}) extends Equatable {
+  factory fromJson(Map<String, dynamic> json) {
+    return .new(
       name: json['name'],
       logoUrl: json['logo_url'],
       email: json['email'],

@@ -1,23 +1,16 @@
 import 'package:equatable/equatable.dart';
 import 'package:iv_project_model/iv_project_model.dart';
 
-class RSVPResponse extends Equatable {
-  const RSVPResponse({
-    required this.id,
-    required this.invitedGuest,
-    required this.message,
-    required this.createdAt,
-  });
-
-  final int id;
-  final InvitedGuestResponse invitedGuest;
-  final String message;
-  final DateTime createdAt;
-
-  factory RSVPResponse.fromJson(Map<String, dynamic> json) {
-    return RSVPResponse(
+class const RSVPResponse({
+  required final int id,
+  required final InvitedGuestResponse invitedGuest,
+  required final String message,
+  required final DateTime createdAt,
+}) extends Equatable {
+  factory fromJson(Map<String, dynamic> json) {
+    return .new(
       id: json['id'],
-      invitedGuest: InvitedGuestResponse.fromJson(json['invited_guest']),
+      invitedGuest: .fromJson(json['invited_guest']),
       message: json['message'],
       createdAt: DateTimeConverter.fromJson(json['created_at'])!,
     );

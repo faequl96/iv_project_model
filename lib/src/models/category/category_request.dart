@@ -1,10 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-class CategoryRequest extends Equatable {
-  const CategoryRequest({required this.name});
-
-  final String name;
-
+class const CategoryRequest({required final String name}) extends Equatable {
   Map<String, dynamic> toJson() {
     return {'name': name};
   }

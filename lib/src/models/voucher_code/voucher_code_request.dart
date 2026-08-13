@@ -1,20 +1,12 @@
 import 'package:equatable/equatable.dart';
 
-class VoucherCodeRequest extends Equatable {
-  const VoucherCodeRequest({
-    required this.name,
-    required this.discountPercentage,
-    required this.usageLimitPerUser,
-    required this.isGlobal,
-    this.userIds = const [],
-  });
-
-  final String name;
-  final int discountPercentage;
-  final int usageLimitPerUser;
-  final bool isGlobal;
-  final List<String> userIds;
-
+class const VoucherCodeRequest({
+  required final String name,
+  required final int discountPercentage,
+  required final int usageLimitPerUser,
+  required final bool isGlobal,
+  final List<String> userIds = const [],
+}) extends Equatable {
   Map<String, dynamic> toJson() {
     return {
       'name': name,

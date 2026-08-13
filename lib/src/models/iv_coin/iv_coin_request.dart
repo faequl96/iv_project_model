@@ -1,10 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-class IVCoinRequest extends Equatable {
-  const IVCoinRequest({required this.balance});
-
-  final int balance;
-
+class const IVCoinRequest({required final int balance}) extends Equatable {
   Map<String, dynamic> toJson() {
     return {'balance': balance};
   }

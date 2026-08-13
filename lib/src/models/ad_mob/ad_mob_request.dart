@@ -1,10 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-class AdMobRequest extends Equatable {
-  const AdMobRequest({required this.amount});
-
-  final int amount;
-
+class const AdMobRequest({required final int amount}) extends Equatable {
   Map<String, dynamic> toJson() {
     return {'amount': amount};
   }

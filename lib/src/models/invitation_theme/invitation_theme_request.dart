@@ -1,20 +1,12 @@
 import 'package:equatable/equatable.dart';
 
-class CreateInvitationThemeRequest extends Equatable {
-  const CreateInvitationThemeRequest({
-    required this.name,
-    required this.idrPrice,
-    required this.ivcPrice,
-    required this.categoryIds,
-    required this.discountCategoryIds,
-  });
-
-  final String name;
-  final int idrPrice;
-  final int ivcPrice;
-  final List<int> categoryIds;
-  final List<int> discountCategoryIds;
-
+class const CreateInvitationThemeRequest({
+  required final String name,
+  required final int idrPrice,
+  required final int ivcPrice,
+  required final List<int> categoryIds,
+  required final List<int> discountCategoryIds,
+}) extends Equatable {
   Map<String, dynamic> toJson() {
     return {
       'name': name,
@@ -29,21 +21,13 @@ class CreateInvitationThemeRequest extends Equatable {
   List<Object?> get props => [name, idrPrice, ivcPrice, categoryIds, discountCategoryIds];
 }
 
-class UpdateInvitationThemeRequest extends Equatable {
-  const UpdateInvitationThemeRequest({
-    this.name,
-    this.idrPrice,
-    this.ivcPrice,
-    this.categoryIds,
-    this.discountCategoryIds,
-  });
-
-  final String? name;
-  final int? idrPrice;
-  final int? ivcPrice;
-  final List<int>? categoryIds;
-  final List<int>? discountCategoryIds;
-
+class const UpdateInvitationThemeRequest({
+  final String? name,
+  final int? idrPrice,
+  final int? ivcPrice,
+  final List<int>? categoryIds,
+  final List<int>? discountCategoryIds,
+}) extends Equatable {
   Map<String, dynamic> toJson() {
     return {
       if (name != null) 'name': name,

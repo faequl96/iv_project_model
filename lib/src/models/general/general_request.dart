@@ -1,29 +1,17 @@
 import 'package:equatable/equatable.dart';
 import 'package:iv_project_model/src/enums/lang_type.dart';
 
-class GeneralRequest extends Equatable {
-  const GeneralRequest({
-    required this.lang,
-    this.removeMusicAudioUrl = false,
-    this.removeCoverImageurl = false,
-    required this.opening,
-    required this.openingQuote,
-    required this.quoteFrom,
-    required this.regards,
-    required this.greeting,
-    required this.closing,
-  });
-
-  final LangType lang;
-  final bool removeMusicAudioUrl;
-  final bool removeCoverImageurl;
-  final String opening;
-  final String openingQuote;
-  final String quoteFrom;
-  final String regards;
-  final String greeting;
-  final String closing;
-
+class const GeneralRequest({
+  required final LangType lang,
+  final bool removeMusicAudioUrl = false,
+  final bool removeCoverImageurl = false,
+  required final String opening,
+  required final String openingQuote,
+  required final String quoteFrom,
+  required final String regards,
+  required final String greeting,
+  required final String closing,
+}) extends Equatable {
   Map<String, dynamic> toJson() {
     return {
       'lang': lang.toJson(),

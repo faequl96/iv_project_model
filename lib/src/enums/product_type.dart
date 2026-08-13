@@ -1,4 +1,7 @@
-enum ProductType { invitation, ivCoinPackage }
+enum ProductType() {
+  invitation,
+  ivCoinPackage
+}
 
 extension ProductTypeExtension on ProductType {
   String toJson() => switch (this) {

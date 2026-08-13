@@ -1,36 +1,25 @@
 import 'package:equatable/equatable.dart';
 import 'package:iv_project_model/iv_project_model.dart';
 
-class InvitationDataResponse extends Equatable {
-  const InvitationDataResponse({
-    required this.id,
-    required this.general,
-    required this.bride,
-    required this.groom,
-    required this.contractEvent,
-    required this.receptionEvent,
-    required this.gallery,
-    this.bankAccounts = const [],
-  });
-
-  final int id;
-  final GeneralResponse general;
-  final BridegroomResponse bride;
-  final BridegroomResponse groom;
-  final EventResponse contractEvent;
-  final EventResponse receptionEvent;
-  final GalleryResponse gallery;
-  final List<BankAccountResponse> bankAccounts;
-
-  factory InvitationDataResponse.fromJson(Map<String, dynamic> json) {
-    return InvitationDataResponse(
+class const InvitationDataResponse({
+  required final int id,
+  required final GeneralResponse general,
+  required final BridegroomResponse bride,
+  required final BridegroomResponse groom,
+  required final EventResponse contractEvent,
+  required final EventResponse receptionEvent,
+  required final GalleryResponse gallery,
+  final List<BankAccountResponse> bankAccounts = const [],
+}) extends Equatable {
+  factory fromJson(Map<String, dynamic> json) {
+    return .new(
       id: json['id'],
-      general: GeneralResponse.fromJson(json['general']),
-      bride: BridegroomResponse.fromJson(json['bride']),
-      groom: BridegroomResponse.fromJson(json['groom']),
-      contractEvent: EventResponse.fromJson(json['contract_event']),
-      receptionEvent: EventResponse.fromJson(json['reception_event']),
-      gallery: GalleryResponse.fromJson(json['gallery']),
+      general: .fromJson(json['general']),
+      bride: .fromJson(json['bride']),
+      groom: .fromJson(json['groom']),
+      contractEvent: .fromJson(json['contract_event']),
+      receptionEvent: .fromJson(json['reception_event']),
+      gallery: .fromJson(json['gallery']),
       bankAccounts: (json['bank_accounts'] as List)
           .map((json) => BankAccountResponse.fromJson(json))
           .toList(),

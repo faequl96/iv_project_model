@@ -1,4 +1,7 @@
-enum LangType { id, en }
+enum LangType() {
+  id,
+  en
+}
 
 extension LangTypeExtension on LangType {
   String toJson() => switch (this) {

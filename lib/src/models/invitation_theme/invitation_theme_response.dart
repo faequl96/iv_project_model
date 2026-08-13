@@ -1,35 +1,21 @@
 import 'package:equatable/equatable.dart';
 import 'package:iv_project_model/iv_project_model.dart';
 
-class InvitationThemeResponse extends Equatable {
-  const InvitationThemeResponse({
-    required this.id,
-    required this.name,
-    required this.idrPrice,
-    required this.idrDiscountPrice,
-    required this.ivcPrice,
-    required this.ivcDiscountPrice,
-    required this.soldCount,
-    required this.userIds,
-    required this.categories,
-    required this.discountCategories,
-    required this.reviews,
-  });
-
-  final int id;
-  final String name;
-  final int idrPrice;
-  final int idrDiscountPrice;
-  final int ivcPrice;
-  final int ivcDiscountPrice;
-  final int soldCount;
-  final List<String> userIds;
-  final List<CategoryResponse> categories;
-  final List<DiscountCategoryResponse> discountCategories;
-  final List<ReviewResponse> reviews;
-
-  factory InvitationThemeResponse.fromJson(Map<String, dynamic> json) {
-    return InvitationThemeResponse(
+class const InvitationThemeResponse({
+  required final int id,
+  required final String name,
+  required final int idrPrice,
+  required final int idrDiscountPrice,
+  required final int ivcPrice,
+  required final int ivcDiscountPrice,
+  required final int soldCount,
+  required final List<String> userIds,
+  required final List<CategoryResponse> categories,
+  required final List<DiscountCategoryResponse> discountCategories,
+  required final List<ReviewResponse> reviews,
+}) extends Equatable {
+  factory fromJson(Map<String, dynamic> json) {
+    return .new(
       id: json['id'] as int,
       name: json['name'] as String,
       idrPrice: json['idr_price'] as int,

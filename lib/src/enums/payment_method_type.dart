@@ -1,4 +1,9 @@
-enum PaymentMethodType { ivCoin, gopay, qris, bankTransfer }
+enum PaymentMethodType() {
+  ivCoin,
+  gopay,
+  qris,
+  bankTransfer
+}
 
 extension PaymentMethodTypeExtension on PaymentMethodType {
   String toJson() => switch (this) {

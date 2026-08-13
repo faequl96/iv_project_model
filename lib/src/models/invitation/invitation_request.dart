@@ -3,12 +3,10 @@ import 'dart:io';
 import 'package:equatable/equatable.dart';
 import 'package:iv_project_model/iv_project_model.dart';
 
-class CreateInvitationRequest extends Equatable {
-  const CreateInvitationRequest({required this.invitationThemeId, required this.invitationData});
-
-  final int invitationThemeId;
-  final InvitationDataRequest invitationData;
-
+class const CreateInvitationRequest({
+  required final int invitationThemeId,
+  required final InvitationDataRequest invitationData,
+}) extends Equatable {
   Map<String, dynamic> toJson() {
     return {'invitation_theme_id': invitationThemeId, 'invitation_data': invitationData.toJson()};
   }
@@ -17,12 +15,10 @@ class CreateInvitationRequest extends Equatable {
   List<Object?> get props => [invitationThemeId, invitationData];
 }
 
-class UpdateInvitationRequest extends Equatable {
-  const UpdateInvitationRequest({this.status, this.invitationData});
-
-  final InvitationStatusType? status;
-  final InvitationDataRequest? invitationData;
-
+class const UpdateInvitationRequest({
+  final InvitationStatusType? status,
+  final InvitationDataRequest? invitationData,
+}) extends Equatable {
   Map<String, dynamic> toJson() {
     return {
       if (status != null) 'status': status!.toJson(),
@@ -34,21 +30,26 @@ class UpdateInvitationRequest extends Equatable {
   List<Object?> get props => [status, invitationData];
 }
 
-class InvitationImageRequest extends Equatable {
-  const InvitationImageRequest({
-    this.musicAudio,
-    this.coverImage,
-    this.brideImage,
-    this.groomImage,
-    this.galleries = const [null, null, null, null, null, null, null, null, null, null, null, null],
-  });
-
-  final File? musicAudio;
-  final File? coverImage;
-  final File? brideImage;
-  final File? groomImage;
-  final List<File?> galleries;
-
+class const InvitationImageRequest({
+  final File? musicAudio,
+  final File? coverImage,
+  final File? brideImage,
+  final File? groomImage,
+  final List<File?> galleries = const [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+  ],
+}) extends Equatable {
   Future<Map<String, dynamic>> toFormDataMap(
     Future<Map<String, dynamic>> Function(
       File? musicAudio,

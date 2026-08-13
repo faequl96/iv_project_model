@@ -1,4 +1,8 @@
-enum UserRoleType { superAdmin, admin, user }
+enum UserRoleType() {
+  superAdmin,
+  admin,
+  user
+}
 
 extension UserRoleTypeExtension on UserRoleType {
   String toJson() => switch (this) {

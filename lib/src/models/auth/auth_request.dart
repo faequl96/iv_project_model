@@ -1,12 +1,10 @@
 import 'package:equatable/equatable.dart';
 
-class LoginAuthRequest extends Equatable {
-  const LoginAuthRequest({required this.id, required this.email, this.displayName});
-
-  final String id;
-  final String email;
-  final String? displayName;
-
+class const LoginAuthRequest({
+  required final String id,
+  required final String email,
+  final String? displayName,
+}) extends Equatable {
   Map<String, dynamic> toJson() {
     return {'id': id, 'email': email, 'display_name': displayName};
   }

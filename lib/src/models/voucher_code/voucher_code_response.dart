@@ -1,25 +1,16 @@
 import 'package:equatable/equatable.dart';
 import 'package:iv_project_model/iv_project_model.dart';
 
-class VoucherCodeResponse extends Equatable {
-  const VoucherCodeResponse({
-    required this.id,
-    required this.name,
-    required this.discountPercentage,
-    required this.usageLimitPerUser,
-    required this.isGlobal,
-    this.users = const [],
-  });
-
-  final int id;
-  final String name;
-  final int discountPercentage;
-  final int usageLimitPerUser;
-  final bool isGlobal;
-  final List<UserResponse> users;
-
-  factory VoucherCodeResponse.fromJson(Map<String, dynamic> json) {
-    return VoucherCodeResponse(
+class const VoucherCodeResponse({
+  required final int id,
+  required final String name,
+  required final int discountPercentage,
+  required final int usageLimitPerUser,
+  required final bool isGlobal,
+  final List<UserResponse> users = const [],
+}) extends Equatable {
+  factory fromJson(Map<String, dynamic> json) {
+    return .new(
       id: json['id'],
       name: json['name'],
       discountPercentage: json['discount_percentage'],

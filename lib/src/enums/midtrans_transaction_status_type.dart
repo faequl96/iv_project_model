@@ -1,4 +1,12 @@
-enum MidtransTransactionStatusType { unknown, settlement, capture, pending, expire, cancel, deny }
+enum MidtransTransactionStatusType() {
+  unknown,
+  settlement,
+  capture,
+  pending,
+  expire,
+  cancel,
+  deny
+}
 
 extension MidtransTransactionStatusTypeExtension on MidtransTransactionStatusType {
   String toJson() => switch (this) {
